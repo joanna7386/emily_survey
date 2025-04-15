@@ -175,7 +175,8 @@ tipi_options = [
     "Συμφωνώ απόλυτα"
 ]
 
-q22 = st.radio("Εξωστρεφή, ενθουσιώδη", tipi_options, index=None, key="q22")
+st.markdown("### Εξωστρεφή, ενθουσιώδη")
+q22 = st.radio("", tipi_options, index=None, key="q22")
 q23 = st.radio("Επικριτικό, quarrelsome", tipi_options, index=None, key="q23")
 q24 = st.radio("Dependable, αυτοπειθαρχημένο", tipi_options, index=None, key="q24")
 q25 = st.radio("Ανήσυχο, easily upset", tipi_options, index=None, key="q25")
