@@ -162,6 +162,82 @@ q21 = st.radio(
     key="q21"
 )
 
+st.markdown("## Απογραφή Προσωπικότητας 10 Στοιχείων (TIPI)")
+st.markdown("**Βλέπω τον εαυτό μου ως:**")
+
+tipi_options = [
+    "Διαφωνώ απόλυτα",
+    "Διαφωνώ μέτρια",
+    "Διαφωνώ λίγο",
+    "Δεν συμφωνώ ούτε διαφωνώ",
+    "Συμφωνώ λίγο",
+    "Συμφωνώ μέτρια",
+    "Συμφωνώ απόλυτα"
+]
+
+q22 = st.radio("Εξωστρεφή, ενθουσιώδη", tipi_options, index=None, key="q22")
+q23 = st.radio("Επικριτικό, quarrelsome", tipi_options, index=None, key="q23")
+q24 = st.radio("Dependable, αυτοπειθαρχημένο", tipi_options, index=None, key="q24")
+q25 = st.radio("Ανήσυχο, easily upset", tipi_options, index=None, key="q25")
+q26 = st.radio("Ανοιχτό σε νέες εμπειρίες, πολύπλοκο", tipi_options, index=None, key="q26")
+q27 = st.radio("Συγκρατημένο, ήσυχο", tipi_options, index=None, key="q27")
+q28 = st.radio("Συμπαθητικό, ζεστό", tipi_options, index=None, key="q28")
+q29 = st.radio("Ανοργάνωτο, απρόσεκτο (careless)", tipi_options, index=None, key="q29")
+q30 = st.radio("Ήρεμο, συναισθηματικά σταθερό", tipi_options, index=None, key="q30")
+q31 = st.radio("Συμβατικό, μη δημιουργικό", tipi_options, index=None, key="q31")
+
+st.markdown("## Κλίμακα Δημιουργικής Νοοτροπίας")
+st.markdown("Διαλέξτε την απάντηση στην παρακάτω κλίμακα που δείχνει πόσο καλά κάθε επίθετο ή φράση περιγράφει την παρούσα διάθεσή σας.")
+
+mindset_options = [
+    "1 (Σίγουρα όχι)",
+    "2",
+    "3",
+    "4",
+    "5 (Σίγουρα ναι)"
+]
+
+q32 = st.radio("Ο καθένας μπορεί να δημιουργήσει κάτι σπουδαίο κάποια στιγμή, αν του/της δίνονται κατάλληλες συνθήκες", mindset_options, index=None, key="q32")
+q33 = st.radio("Είτε είναι κανείς δημιουργικός είτε δεν είναι—ακόμα κι να προσπαθήσει πολύ σκληρά δεν μπορεί να αλλάξει πολλά", mindset_options, index=None, key="q33")
+q34 = st.radio("Ο καθένας/η καθεμία μπορεί να αναπτύξει τις δημιουργικές του/της ικανότητες μέχρι ένα ορισμένο επίπεδο", mindset_options, index=None, key="q34")
+q35 = st.radio("Πρέπει να είσαι γεννημένος/η δημιουργός—χωρίς έμφυτο ταλέντο μπορείς μόνο να είσαι κακότεχνος", mindset_options, index=None, key="q35")
+q36 = st.radio("Η εξάσκηση σε τελειοποιεί—η επιμονή και η σκληρή προσπάθεια είναι οι καλύτεροι τρόποι να αναπτύξει και να επεκτείνει κάποιος/α τις δυνατότητές του/της", mindset_options, index=None, key="q36")
+q37 = st.radio("Η δημιουργικότητα μπορεί να αναπτυχθεί, αλλά κάποιος/α είτε είναι είτε δεν είναι ένα πραγματικά δημιουργικό άτομο", mindset_options, index=None, key="q37")
+q38 = st.radio("Η Ρώμη δεν χτίστηκε σε μια μέρα—η δημιουργικότητα απαιτεί προσπάθεια και δουλειά, και αυτά τα δύο είναι πιο σημαντικά από το ταλέντο", mindset_options, index=None, key="q38")
+q39 = st.radio("Μερικοί άνθρωποι είναι δημιουργικοί, άλλοι δεν είναι—και καμία εξάσκηση δεν μπορεί να το αλλάξει", mindset_options, index=None, key="q39")
+q40 = st.radio("Δεν έχει σημασία ποιο επίπεδο δημιουργικότητας επιδεικνύει κάποιος—μπορείς πάντα να το αυξήσεις", mindset_options, index=None, key="q40")
+q41 = st.radio("Ένα αληθινά δημιουργικό ταλέντο είναι έμφυτο και σταθερό σε ολόκληρη τη ζωή του ατόμου", mindset_options, index=None, key="q41")
+
+st.markdown("## Σύντομη Κλίμακα Ενδοσκόπησης Διάθεσης")
+st.markdown("Διαλέξτε την απάντηση στην παρακάτω κλίμακα που δείχνει πόσο καλά κάθε επίθετο ή φράση περιγράφει την παρούσα διάθεσή σας.")
+
+mood_options = [
+    "1 (Σίγουρα δεν νιώθω)",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7 (Σίγουρα νιώθω)"
+]
+
+q42 = st.radio("Ζωηρός", mood_options, index=None, key="q42")
+q43 = st.radio("Χαρούμενος", mood_options, index=None, key="q43")
+q44 = st.radio("Λυπημένος", mood_options, index=None, key="q44")
+q45 = st.radio("Κουρασμένος", mood_options, index=None, key="q45")
+q46 = st.radio("Caring", mood_options, index=None, key="q46")
+q47 = st.radio("Ευχαριστημένος (Content)", mood_options, index=None, key="q47")
+q48 = st.radio("Κακόκεφος (Gloomy)", mood_options, index=None, key="q48")
+q49 = st.radio("Νευρικός", mood_options, index=None, key="q49")
+q50 = st.radio("Νυσταγμένος", mood_options, index=None, key="q50")
+q51 = st.radio("Γκρινιάρης", mood_options, index=None, key="q51")
+q52 = st.radio("Ζωηρός (peppy)", mood_options, index=None, key="q52")
+q53 = st.radio("Αγχωμένος", mood_options, index=None, key="q53")
+q54 = st.radio("Ήρεμος", mood_options, index=None, key="q54")
+q55 = st.radio("Τρυφερός (loving)", mood_options, index=None, key="q55")
+q56 = st.radio("Fed up", mood_options, index=None, key="q56")
+q57 = st.radio("Δραστήριος", mood_options, index=None, key="q57")
+
 
 
 
