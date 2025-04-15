@@ -175,55 +175,16 @@ tipi_options = [
     "Συμφωνώ απόλυτα"
 ]
 
-st.markdown(
-    """
-    <style>
-    .tight-label { 
-        font-size: 18px; 
-        font-weight: bold; 
-        line-height: 1.1; 
-        margin-bottom: -1rem;
-    }
-    .block-container {
-        padding-top: 1rem;
-        padding-bottom: 1rem;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
-st.markdown('<div class="tight-label">Εξωστρεφή, ενθουσιώδη</div>', unsafe_allow_html=True)
-q22 = st.radio("", tipi_options, index=None, key="q22")
-
-
-st.markdown("<span style='font-size:18px; font-weight:bold;'>Επικριτικός, quarrelsome</span>", unsafe_allow_html=True)
-q23 = st.radio("", tipi_options, index=None, key="q23")
-
-st.markdown("<span style='font-size:18px; font-weight:bold;'>Dependable, αυτοπειθαρχημένο</span>", unsafe_allow_html=True)
-q24 = st.radio("", tipi_options, index=None, key="q24")
-
-st.markdown("<span style='font-size:18px; font-weight:bold;'>Ανήσυχο, easily upset</span>", unsafe_allow_html=True)
-q25 = st.radio("", tipi_options, index=None, key="q25")
-
-st.markdown("<span style='font-size:18px; font-weight:bold;'>Ανοιχτό σε νέες εμπειρίες, πολύπλοκο</span>", unsafe_allow_html=True)
-q26 = st.radio("", tipi_options, index=None, key="q26")
-
-st.markdown("<span style='font-size:18px; font-weight:bold;'>Συγκρατημένο, ήσυχο</span>", unsafe_allow_html=True)
-q27 = st.radio("", tipi_options, index=None, key="q27")
-
-st.markdown("<span style='font-size:18px; font-weight:bold;'>Συμπαθητικό, ζεστό</span>", unsafe_allow_html=True)
-q28 = st.radio("", tipi_options, index=None, key="q28")
-
-st.markdown("<span style='font-size:18px; font-weight:bold;'>Ανοργάνωτο, απρόσεκτο (careless)</span>", unsafe_allow_html=True)
-q29 = st.radio("", tipi_options, index=None, key="q29")
-
-st.markdown("<span style='font-size:18px; font-weight:bold;'>Ήρεμο, συναισθηματικά σταθερό</span>", unsafe_allow_html=True)
-q30 = st.radio("", tipi_options, index=None, key="q30")
-
-st.markdown("<span style='font-size:18px; font-weight:bold;'>Συμβατικό, μη δημιουργικό</span>", unsafe_allow_html=True)
-q31 = st.radio("", tipi_options, index=None, key="q31")
-
+q22 = st.radio("Εξωστρεφή, ενθουσιώδη", tipi_options, index=None, key="q22")
+q23 = st.radio("Επικριτικό, quarrelsome", tipi_options, index=None, key="q23")
+q24 = st.radio("Dependable, αυτοπειθαρχημένο", tipi_options, index=None, key="q24")
+q25 = st.radio("Ανήσυχο, easily upset", tipi_options, index=None, key="q25")
+q26 = st.radio("Ανοιχτό σε νέες εμπειρίες, πολύπλοκο", tipi_options, index=None, key="q26")
+q27 = st.radio("Συγκρατημένο, ήσυχο", tipi_options, index=None, key="q27")
+q28 = st.radio("Συμπαθητικό, ζεστό", tipi_options, index=None, key="q28")
+q29 = st.radio("Ανοργάνωτο, απρόσεκτο (careless)", tipi_options, index=None, key="q29")
+q30 = st.radio("Ήρεμο, συναισθηματικά σταθερό", tipi_options, index=None, key="q30")
+q31 = st.radio("Συμβατικό, μη δημιουργικό", tipi_options, index=None, key="q31")
 
 st.markdown("## Κλίμακα Δημιουργικής Νοοτροπίας")
 st.markdown("Διαλέξτε την απάντηση στην παρακάτω κλίμακα που δείχνει πόσο καλά κάθε επίθετο ή φράση περιγράφει την παρούσα διάθεσή σας.")
