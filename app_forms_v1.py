@@ -4,6 +4,8 @@ from datetime import datetime
 
 import streamlit as st
 
+st.set_page_config(layout="wide")
+
 st.title("Ερωτηματολόγιο")  # Survey title
 st.markdown("## Δημογραφικά Στοιχεία")
 
