@@ -176,7 +176,7 @@ tipi_options = [
 ]
 
 st.markdown(
-    "<div style='font-size:18px; font-weight:bold; margin-bottom:-80px;'>Εξωστρεφή, ενθουσιώδη</div>",
+    "<div style='font-size:18px; font-weight:bold; margin-bottom:-100px;'>Εξωστρεφή, ενθουσιώδη</div>",
     unsafe_allow_html=True
 )
 q22 = st.radio("", tipi_options, index=None, key="q22")
