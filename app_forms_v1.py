@@ -175,7 +175,10 @@ tipi_options = [
     "Συμφωνώ απόλυτα"
 ]
 
-st.markdown("<span style='font-size:18px; font-weight:bold;'>Εξωστρεφή, ενθουσιώδη</span>", unsafe_allow_html=True)
+st.markdown(
+    "<div style='font-size:18px; font-weight:bold; margin-bottom:-10px;'>Εξωστρεφή, ενθουσιώδη</div>",
+    unsafe_allow_html=True
+)
 q22 = st.radio("", tipi_options, index=None, key="q22")
 
 st.markdown("<span style='font-size:18px; font-weight:bold;'>Επικριτικός, quarrelsome</span>", unsafe_allow_html=True)
