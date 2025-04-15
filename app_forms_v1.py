@@ -213,32 +213,25 @@ st.markdown("Διαλέξτε την απάντηση στην παρακάτω 
 
 mood_options = [
     "1 (Σίγουρα δεν νιώθω)",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
+    "2", "3", "4", "5", "6",
     "7 (Σίγουρα νιώθω)"
 ]
 
-q42 = st.radio("Ζωηρός", mood_options, index=None, key="q42")
-q43 = st.radio("Χαρούμενος", mood_options, index=None, key="q43")
-q44 = st.radio("Λυπημένος", mood_options, index=None, key="q44")
-q45 = st.radio("Κουρασμένος", mood_options, index=None, key="q45")
-q46 = st.radio("Caring", mood_options, index=None, key="q46")
-q47 = st.radio("Ευχαριστημένος (Content)", mood_options, index=None, key="q47")
-q48 = st.radio("Κακόκεφος (Gloomy)", mood_options, index=None, key="q48")
-q49 = st.radio("Νευρικός", mood_options, index=None, key="q49")
-q50 = st.radio("Νυσταγμένος", mood_options, index=None, key="q50")
-q51 = st.radio("Γκρινιάρης", mood_options, index=None, key="q51")
-q52 = st.radio("Ζωηρός (peppy)", mood_options, index=None, key="q52")
-q53 = st.radio("Αγχωμένος", mood_options, index=None, key="q53")
-q54 = st.radio("Ήρεμος", mood_options, index=None, key="q54")
-q55 = st.radio("Τρυφερός (loving)", mood_options, index=None, key="q55")
-q56 = st.radio("Fed up", mood_options, index=None, key="q56")
-q57 = st.radio("Δραστήριος", mood_options, index=None, key="q57")
-
-
-
+q42 = st.radio("Ζωηρός", mood_options, index=None, key="q42", horizontal=True)
+q43 = st.radio("Χαρούμενος", mood_options, index=None, key="q43", horizontal=True)
+q44 = st.radio("Λυπημένος", mood_options, index=None, key="q44", horizontal=True)
+q45 = st.radio("Κουρασμένος", mood_options, index=None, key="q45", horizontal=True)
+q46 = st.radio("Caring", mood_options, index=None, key="q46", horizontal=True)
+q47 = st.radio("Ευχαριστημένος (Content)", mood_options, index=None, key="q47", horizontal=True)
+q48 = st.radio("Κακόκεφος (Gloomy)", mood_options, index=None, key="q48", horizontal=True)
+q49 = st.radio("Νευρικός", mood_options, index=None, key="q49", horizontal=True)
+q50 = st.radio("Νυσταγμένος", mood_options, index=None, key="q50", horizontal=True)
+q51 = st.radio("Γκρινιάρης", mood_options, index=None, key="q51", horizontal=True)
+q52 = st.radio("Ζωηρός (peppy)", mood_options, index=None, key="q52", horizontal=True)
+q53 = st.radio("Αγχωμένος", mood_options, index=None, key="q53", horizontal=True)
+q54 = st.radio("Ήρεμος", mood_options, index=None, key="q54", horizontal=True)
+q55 = st.radio("Τρυφερός (loving)", mood_options, index=None, key="q55", horizontal=True)
+q56 = st.radio("Fed up", mood_options, index=None, key="q56", horizontal=True)
+q57 = st.radio("Δραστήριος", mood_options, index=None, key="q57", horizontal=True)
 
 
