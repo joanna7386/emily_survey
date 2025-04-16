@@ -203,8 +203,9 @@ st.markdown("---")
 # EMOTCONT
 st.markdown("## Συναισθηματική Μετάδοση")
 st.markdown("Απάντησε σύμφωνα με τον δικό σου τρόπο να σκέφτεσαι, να αισθάνεσαι και να ενεργείς σε διάφορες καταστάσεις:")
+st.markdown("**1 = Ποτέ 5 = Πάντα")
 
-emotcont_options = ["1  Ποτέ", "2", "3", "4", "5  Πάντα"]
+emotcont_options = ["1", "2", "3", "4", "5"]
 
 q1_emotcont = st.radio("1. Εάν ο συνομιλητής μου αρχίζει να κλαίει, τότε μου έρχονται δάκρυα στα μάτια.", emotcont_options, index=None, key="q1_emotcont", horizontal=True)
 q2_emotcont = st.radio("2. Το να είμαι με κάποιον που είναι χαρούμενος, με κάνει να αισθάνομαι καλύτερα όταν είμαι στεναχωρημένος.", emotcont_options, index=None, key="q2_emotcont", horizontal=True)
