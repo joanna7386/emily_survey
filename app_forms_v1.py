@@ -15,18 +15,20 @@ gender = st.selectbox(
     ["", "Γυναίκα", "Άντρας", "Μη-δυαδικό", "Προτιμώ να μην πω"]
 )
 
+st.markdown("---")
+
 # ΕΡΩΤΗΣΕΙΣ ΓΙΑ ΜΟΥΣΙΚΗ ΕΜΠΕΙΡΙΑ
 st.markdown("## Ενασχόληση με τη Μουσική")
 
 # Main instrument input
 st.text_input(
-    "Το μουσικό όργανο που παίζω καλύτερα (συμπεριλαμβανομένης της φωνής):",
+    "Το μουσικό όργανο που παίζω καλύτερα (συμπεριλαμβανομένης της φωνής) είναι:",
     placeholder="π.χ. πιάνο, κιθάρα, φλάουτο, φωνή",
     key="instrument_goldmsi"
 )
 
 # Music listening preference
-genre_listen_options = ["Ροκ/ποπ", "Τζαζ", "Κλασική", "Ελληνική παραδοσιακή", "Άλλο", "Κανένα"]
+genre_listen_options = ["Ροκ/ποπ", "Τζαζ", "Κλασική", "Άλλο", "Κανένα"]
 
 q1_music_style = st.radio(
     "Ποιο είδος μουσικής ακούτε περισσότερο;",
@@ -41,10 +43,10 @@ else:
     q1_music_style_other = ""
 
 # Musical training background
-genre_training_options = ["Ροκ/ποπ", "Τζαζ", "Κλασική", "Ελληνική παραδοσιακή", "Άλλο", "Κανένα"]
+genre_training_options = ["Ροκ/ποπ", "Τζαζ", "Κλασική", "Άλλο", "Κανένα"]
 
 q_music_training_style = st.radio(
-    "Σε ποιο είδος μουσικής έχετε λάβει εκπαίδευση ή είστε αυτοδίδακτος/η (αν δεν έχετε, επιλέξτε 'Κανένα');",
+    "Σε ποιο είδος μουσικής έχετε λάβει εκπαίδευση ή είστε αυτοδίδακτος/η (αν δεν ισχύει για εσάς, επιλέξτε 'Κανένα');",
     genre_training_options,
     index=None,
     key="q_music_training_style"
@@ -55,7 +57,7 @@ if q_music_training_style == "Άλλο":
 else:
     q_music_training_style_other = ""
 
-
+st.markdown("---")
 
 # GOLD-MSI
 st.markdown("Παρακαλώ επιλέξτε αυτό που ταιριάζει στην περίπτωσή σας.")
