@@ -59,7 +59,6 @@ st.markdown("---")
 # ΕΜΠΕΙΡΙΑ ΜΕ ΑΥΤΟΣΧΕΔΙΑΣΜΟ
 st.markdown("## Εμπειρία με τον αυτοσχεδιασμό")
 
-# Q1: Familiarity with improvisation (Likert-style, 1-7)
 q1_improv = st.radio(
     "Πόσο εξοικειωμένος/η αισθάνεστε με τον μουσικό αυτοσχεδιασμό;",
     ["1 (Καθόλου)", "2", "3", "4", "5", "6", "7 (Πάρα πολύ)"],
@@ -68,7 +67,6 @@ q1_improv = st.radio(
     horizontal=True
 )
 
-# Q2: Years of practice
 q2_improv = st.radio(
     "Πόσα χρόνια ασκείστε στον μουσικό αυτοσχεδιασμό;",
     ["0", "0.5", "1", "2", "3", "4-6", "7-10", "11 ή περισσότερα"],
@@ -76,19 +74,16 @@ q2_improv = st.radio(
     key="q2_improv", horizontal=True,
 )
 
-# Q3: How did you learn? (forced single choice version)
-q3_improv = st.radio(
-    "Ποιον τρόπο μάθησης του αυτοσχεδιασμού περιγράφετε περισσότερο;",
-    ["Επίσημη εκπαίδευση", "Αυτοδίδακτα", "Σε σύνολο/ομάδα", "Μόνος/η μου", "Άλλο"],
-    index=None,
-    key="q3_improv", horizontal=True,
+q3_improv = st.multiselect(
+    "Με ποιον τρόπο εξοικειωθήκατε με τον αυτοσχεδιασμό; (Μπορείτε να επιλέξετε περισσότερες από μία επιλογές)",
+    ["Επίσημη εκπαίδευση", "Αυτοδίδακτος/η", "Σε σύνολο/ομάδα", "Μόνος/η μου", "Άλλο"],
+    key="q3_improv"
 )
-if q3_improv == "Άλλο":
+if "Άλλο" in q3_improv:
     q3_improv_other = st.text_input("Παρακαλώ διευκρινίστε:", key="q3_improv_other")
 else:
     q3_improv_other = ""
 
-# Q4: Live performance experience
 q4_improv = st.radio(
     "Πόσες φορές έχετε αυτοσχεδιάσει ζωντανά (σε κοινό);",
     ["0", "1", "2-5", "6-10", "11-20", "21 ή περισσότερες"],
