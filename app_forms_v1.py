@@ -17,7 +17,7 @@ gender = st.selectbox(
 
 st.markdown("---")
 
-# ΕΡΩΤΗΣΕΙΣ ΓΙΑ ΜΟΥΣΙΚΗ ΕΜΠΕΙΡΙΑ
+# ΕΝΑΣΧΟΛΗΣΗ ΜΕ ΤΗ ΜΟΥΣΙΚΗ
 st.markdown("## Ενασχόληση με τη Μουσική")
 
 # Main instrument input
@@ -60,6 +60,8 @@ else:
 st.markdown("---")
 
 # GOLD-MSI
+# ΕΝΕΡΓΟΣ ΕΝΑΣΧΟΛΗΣΗ
+st.markdown("## ΕΝΕΡΓΟΣ ΕΝΑΣΧΟΛΗΣΗ")
 st.markdown("Παρακαλώ επιλέξτε αυτό που ταιριάζει στην περίπτωσή σας.")
 
 likert_options = [
