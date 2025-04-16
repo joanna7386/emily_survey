@@ -73,7 +73,7 @@ q2_improv = st.radio(
     "Πόσα χρόνια ασκείστε στον μουσικό αυτοσχεδιασμό;",
     ["0", "0.5", "1", "2", "3", "4-6", "7-10", "11 ή περισσότερα"],
     index=None,
-    key="q2_improv"
+    key="q2_improv", horizontal=True,
 )
 
 # Q3: How did you learn? (forced single choice version)
@@ -81,7 +81,7 @@ q3_improv = st.radio(
     "Ποιον τρόπο μάθησης του αυτοσχεδιασμού περιγράφετε περισσότερο;",
     ["Επίσημη εκπαίδευση", "Αυτοδίδακτα", "Σε σύνολο/ομάδα", "Μόνος/η μου", "Άλλο"],
     index=None,
-    key="q3_improv"
+    key="q3_improv", horizontal=True,
 )
 if q3_improv == "Άλλο":
     q3_improv_other = st.text_input("Παρακαλώ διευκρινίστε:", key="q3_improv_other")
@@ -93,7 +93,7 @@ q4_improv = st.radio(
     "Πόσες φορές έχετε αυτοσχεδιάσει ζωντανά (σε κοινό);",
     ["0", "1", "2-5", "6-10", "11-20", "21 ή περισσότερες"],
     index=None,
-    key="q4_improv"
+    key="q4_improv", horizontal=True,
 )
 
 # GOLD-MSI
