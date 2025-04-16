@@ -223,6 +223,8 @@ q13_emotcont = st.radio("13. Καταλαβαίνω ότι φορτίζομαι 
 q14_emotcont = st.radio("14. Κλαίω, όταν βλέπω λυπητερά έργα.", emotcont_options, index=None, key="q14_emotcont", horizontal=True)
 q15_emotcont = st.radio("15. Εάν τύχει να ακούσω την κραυγή ενός τρομαγμένου παιδιού, στην αίθουσα αναμονής του οδοντιατρείου, γίνομαι νευρικός/ή.", emotcont_options, index=None, key="q15_emotcont", horizontal=True)
 
+st.markdown("**1 = Ποτέ  5 = Πάντα**")
+
 st.markdown("---")
 
 # BMIS
