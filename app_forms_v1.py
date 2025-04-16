@@ -2,15 +2,13 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 
-import streamlit as st
-
-# st.set_page_config(layout="wide")
+st.set_page_config(layout="wide")
 
 st.title("Ερωτηματολόγιο")  # Survey title
 st.markdown("## Δημογραφικά Στοιχεία")
 
 # Ηλικία (numeric input)
-age = st.number_input("Ηλικία", min_value=10, max_value=120, step=1, format="%d", value=None, placeholder="Πληκτρολογήστε την ηλικία σας")
+age = st.number_input("Ηλικία", min_value=17, max_value=80, step=1, format="%d", value=None, placeholder="Πληκτρολογήστε την ηλικία σας")
 
 gender = st.selectbox(
     "Φύλο",
@@ -19,7 +17,7 @@ gender = st.selectbox(
 
 st.markdown("## Ενασχόληση με τη Μουσική")
 
-st.text_input("The instrument I play best (including voice) is:", placeholder="e.g. piano, guitar, soprano voice", key="instrument_goldmsi")
+st.text_input("Το μουσικό όργανο που παίζω καλύτερα (συμπεριλαμβανομένης της φωνής) είναι:", placeholder="π.χ. πιάνο, κιθάρα, φλάουτο, φωνή", key="instrument_goldmsi")
 
 genre_listen_options = ["Ροκ/ποπ", "Τζαζ", "Κλασική", "Ελληνική παραδοσιακή", "Άλλο"]
 
