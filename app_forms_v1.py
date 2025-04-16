@@ -20,14 +20,12 @@ st.markdown("---")
 # ΕΝΑΣΧΟΛΗΣΗ ΜΕ ΤΗ ΜΟΥΣΙΚΗ
 st.markdown("## Ενασχόληση με τη Μουσική")
 
-# Main instrument input
 st.text_input(
     "Το μουσικό όργανο που παίζω καλύτερα (συμπεριλαμβανομένης της φωνής) είναι:",
     placeholder="π.χ. πιάνο, κιθάρα, φλάουτο, φωνή",
     key="instrument_goldmsi"
 )
 
-# Music listening preference
 genre_listen_options = ["Ροκ/ποπ", "Τζαζ", "Κλασική", "Άλλο", "Κανένα"]
 
 q1_music_style = st.radio(
@@ -41,7 +39,6 @@ if q1_music_style == "Άλλο":
 else:
     q1_music_style_other = ""
 
-# Musical training background
 genre_training_options = ["Ροκ/ποπ", "Τζαζ", "Κλασική", "Άλλο", "Κανένα"]
 
 q_music_training_style = st.radio(
@@ -55,6 +52,8 @@ if q_music_training_style == "Άλλο":
 else:
     q_music_training_style_other = ""
 
+q_learning = st.radio("Πώς αποκτήσατε τη μουσική σας εκπαίδευση/εμπειρία;", ["Επίσημη εκπαίδευση", "Αυτοδίδακτα", "Και τα δύο", "Δεν έχω μουσική εμπειρία"], index=None)
+
 st.markdown("---")
 
 # ΕΜΠΕΙΡΙΑ ΜΕ ΑΥΤΟΣΧΕΔΙΑΣΜΟ
@@ -67,7 +66,7 @@ q2_improv = st.selectbox("Πόσα χρόνια ασκείστε στον μου
 
 q3_improv = st.multiselect(
     "Πώς μάθατε να αυτοσχεδιάζετε;",
-    ["Επίσημη εκπαίδευση", "Αυτοδίδακτα", "Σε σύνολο/ομάδα", "Μόνος/η μου", "Άλλο"], key="q3_improv")
+    ["Επίσημη εκπαίδευση", "Αυτοδίδακτα", "Σε σύνολο", "Μόνος/η μου", "Άλλο", "Δεν αυτοσχεδιάζω"], key="q3_improv")
 if "Άλλο" in q3_improv:
     q3_improv_other = st.text_input("Παρακαλώ διευκρινίστε:", key="q3_improv_other")
 else:
