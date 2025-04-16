@@ -61,45 +61,40 @@ st.markdown("---")
 
 # GOLD-MSI
 # ΕΝΕΡΓΟΣ ΕΝΑΣΧΟΛΗΣΗ
-st.markdown("## ΕΝΕΡΓΟΣ ΕΝΑΣΧΟΛΗΣΗ")
+st.markdown("## Ενεργός ενασχόληση")
 st.markdown("Παρακαλώ επιλέξτε αυτό που ταιριάζει στην περίπτωσή σας.")
 
-likert_options = [
-    "Συμφωνώ απολύτως", "Συμφωνώ εντόνως", "Συμφωνώ", "Ούτε συμφωνώ ούτε διαφωνώ",
-    "Διαφωνώ", "Διαφωνώ εντόνως", "Διαφωνώ πλήρως"
-]
+likert_options = ["Συμφωνώ απολύτως", "Συμφωνώ εντόνως", "Συμφωνώ", "Ούτε συμφωνώ ούτε διαφωνώ",
+    "Διαφωνώ", "Διαφωνώ εντόνως", "Διαφωνώ πλήρως"]
 
-q1_goldmsi = st.radio("Περνάω πολύ από τον ελεύθερο χρόνο μου σε δραστηριότητες που σχετίζονται με τη μουσική.", likert_options, index=None, key="q1_goldmsi")
-q2_goldmsi = st.radio("Μου αρέσει να γράφω για τη μουσική, για παράδειγμα σε blog και φόρουμ.", likert_options, index=None, key="q2_goldmsi")
-q3_goldmsi = st.radio("Με ενθουσιάζουν μουσικά είδη που δεν μου είναι οικεία και θέλω να ανακαλύψω περισσότερα γι’αυτά.", likert_options, index=None, key="q3_goldmsi")
-q4_goldmsi = st.radio("Συχνά διαβάζω ή ψάχνω στο διαδίκτυο για πράγματα που σχετίζονται με τη μουσική.", likert_options, index=None, key="q4_goldmsi")
-q5_goldmsi = st.radio("Δεν ξοδεύω μεγάλο μέρος του διαθέσιμου εισοδήματός μου για τη μουσική.", likert_options, index=None, key="q5_goldmsi")
-q6_goldmsi = st.radio("Η μουσική είναι σαν εθισμός για μένα – δεν θα μπορούσα να ζήσω χωρίς αυτή.", likert_options, index=None, key="q6_goldmsi")
-q7_goldmsi = st.radio("Παρακολουθώ την καινούργια μουσική που συναντώ (π.χ. νέους καλλιτέχνες ή ηχογραφήσεις).", likert_options, index=None, key="q7_goldmsi")
+q1_goldmsi_ae = st.radio("Περνάω πολύ από τον ελεύθερο χρόνο μου σε δραστηριότητες που σχετίζονται με τη μουσική.", likert_options, index=None, key="q1_goldmsi_ae")
+q2_goldmsi_ae = st.radio("Μου αρέσει να γράφω για τη μουσική, για παράδειγμα σε blog και φόρουμ.", likert_options, index=None, key="q2_goldmsi_ae")
+q3_goldmsi_ae = st.radio("Με ενθουσιάζουν μουσικά είδη που δεν μου είναι οικεία και θέλω να ανακαλύψω περισσότερα γι’αυτά.", likert_options, index=None, key="q3_goldmsi_ae")
+q4_goldmsi_ae = st.radio("Συχνά διαβάζω ή ψάχνω στο διαδίκτυο για πράγματα που σχετίζονται με τη μουσική.", likert_options, index=None, key="q4_goldmsi_ae")
+q5_goldmsi_ae = st.radio("Δεν ξοδεύω μεγάλο μέρος του διαθέσιμου εισοδήματός μου για τη μουσική.", likert_options, index=None, key="q5_goldmsi_ae")
+q6_goldmsi_ae = st.radio("Η μουσική είναι σαν εθισμός για μένα – δεν θα μπορούσα να ζήσω χωρίς αυτή.", likert_options, index=None, key="q6_goldmsi_ae")
+q7_goldmsi_ae = st.radio("Παρακολουθώ την καινούργια μουσική που συναντώ (π.χ. νέους καλλιτέχνες ή ηχογραφήσεις).", likert_options, index=None, key="q7_goldmsi_ae")
+q8_goldmsi_ae = st.radio("Έχω παρακολουθήσει __ ζωντανές μουσικές εκδηλώσεις ως ακροατής τους τελευταίους δώδεκα μήνες.", ["0", "1", "2", "3", "4-6", "7-10", "11+"], index=None, key="q8_goldmsi_ae")
+q9_goldmsi_ae = st.radio("Ακούω μουσική με προσοχή __ την ημέρα.", ["0-15 λεπτά", "15-30 λεπτά", "30-60 λεπτά", "60-90 λεπτά", "2 ώρες", "2-3 ώρες", "4 ώρες ή περισσότερο"], index=None, key="q9_goldmsi_ae")
 
-st.markdown("## Μουσική Εμπειρία")
+st.markdown("## Μουσική εκπαίδευση")
 
-q8_goldmsi = st.radio("Έχω παρακολουθήσει __ ζωντανές μουσικές εκδηλώσεις ως ακροατής τους τελευταίους δώδεκα μήνες.", ["0", "1", "2", "3", "4-6", "7-10", "11+"], index=None, key="q8_goldmsi")
-q9_goldmsi = st.radio("Ακούω μουσική με προσοχή __ την ημέρα.", ["0-15 λεπτά", "15-30 λεπτά", "30-60 λεπτά", "60-90 λεπτά", "2 ώρες", "2-3 ώρες", "4 ώρες ή περισσότερο"], index=None, key="q9_goldmsi")
+q1_goldmsi_mt = st.radio("Ποτέ δεν έχω λάβει κοπλιμέντα για τα ταλέντα μου ως μουσικός ερμηνευτής.", likert_options, index=None, key="q1_goldmsi_mt")
+q2_goldmsi_mt = st.radio("Δεν θα θεωρούσα τον εαυτό μου μουσικό.", likert_options, index=None, key="q2_goldmsi_mt")
+q3_goldmsi_mt = st.radio("Ασχολήθηκα με τακτική, καθημερινή πρακτική ενός μουσικού οργάνου (συμπεριλαμβανομένης της φωνής) για ___ χρόνια.", ["0", "1", "2", "3", "4-5", "6-9", "10 ή περισσότερα"], index=None, key="q3_goldmsi_mt")
+q4_goldmsi_mt = st.radio("Στο αποκορύφωμα του ενδιαφέροντός μου, μελετούσα ___ ώρες την ημέρα το κύριο όργανό μου.", ["0", "0,5", "1", "1,5", "2", "3-4", "5 ή περισσότερες"], index=None, key="q4_goldmsi_mt")
+q5_goldmsi_mt = st.radio("Έχω λάβει επίσημα μαθήματα θεωρίας της μουσικής __ χρόνια.", ["0", "0,5", "1", "2", "3", "4-6", "7 ή περισσότερα"], index=None, key="q5_goldmsi_mt")
+q6_goldmsi_mt = st.radio("Έχω λάβει __ χρόνια επίσημη εκπαίδευση σε ένα μουσικό όργανο (συμπεριλαμβανομένης της φωνής) κατά τη διάρκεια της ζωής μου.", ["0", "0,5", "1", "2", "3-5", "6-9", "10 ή περισσότερα"], index=None, key="q6_goldmsi_mt")
+q7_goldmsi_mt = st.radio("Μπορώ να παίξω ___ μουσικά όργανα.", ["0", "1", "2", "3", "4", "5", "6 ή περισσότερα"], index=None, key="q7_goldmsi_mt")
 
-st.markdown("## Μουσική Ταυτότητα / Αυτοαντίληψη")
+st.markdown("## Συναισθήματα")
 
-q10_goldmsi = st.radio("Ποτέ δεν έχω λάβει κοπλιμέντα για τα ταλέντα μου ως μουσικός ερμηνευτής.", likert_options, index=None, key="q10_goldmsi")
-q11_goldmsi = st.radio("Δεν θα θεωρούσα τον εαυτό μου μουσικό.", likert_options, index=None, key="q11_goldmsi")
-q12_goldmsi = st.radio("Στο αποκορύφωμα του ενδιαφέροντός μου, μελετούσα ___ ώρες την ημέρα το κύριο όργανό μου.", ["0", "0,5", "1", "1,5", "2", "3-4", "5 ή περισσότερες"], index=None, key="q12_goldmsi")
-q13_goldmsi = st.radio("Έχω λάβει επίσημα μαθήματα θεωρίας της μουσικής __ χρόνια.", ["0", "0,5", "1", "2", "3", "4-6", "7 ή περισσότερα"], index=None, key="q13_goldmsi")
-q14_goldmsi = st.radio("Έχω λάβει __ χρόνια επίσημη εκπαίδευση σε ένα μουσικό όργανο (συμπεριλαμβανομένης της φωνής) κατά τη διάρκεια της ζωής μου.", ["0", "0,5", "1", "2", "3-5", "6-9", "10 ή περισσότερα"], index=None, key="q14_goldmsi")
-q15_goldmsi = st.radio("Μπορώ να παίξω ___ μουσικά όργανα.", ["0", "1", "2", "3", "4", "5", "6 ή περισσότερα"], index=None, key="q15_goldmsi")
-
-
-st.markdown("## Συναισθηματική Αντίδραση στη Μουσική")
-
-q16_goldmsi = st.radio("Κάποιες φορές επιλέγω μουσική που μπορεί να με κάνει να ανατριχιάσω.", likert_options, index=None, key="q16_goldmsi")
-q17_goldmsi = st.radio("Σπάνια τα μουσικά κομμάτια μου προκαλούν συναισθήματα.", likert_options, index=None, key="q17_goldmsi")
-q18_goldmsi = st.radio("Συχνά επιλέγω συγκεκριμένη μουσική για να με παρακινήσει ή να με ενθουσιάσει.", likert_options, index=None, key="q18_goldmsi")
-q19_goldmsi = st.radio("Μπορώ να προσδιορίσω τι είναι ιδιαίτερο σε ένα συγκεκριμένο μουσικό κομμάτι.", likert_options, index=None, key="q19_goldmsi")
-q20_goldmsi = st.radio("Μπορώ να μιλήσω για τα συναισθήματα που μου προκαλεί ένα μουσικό κομμάτι.", likert_options, index=None, key="q20_goldmsi")
-q21_goldmsi = st.radio("Η μουσική μπορεί να μου ανακαλέσει αναμνήσεις από ανθρώπους και μέρη του παρελθόντος.", likert_options, index=None, key="q21_goldmsi")
+q1_goldmsi_e = st.radio("Κάποιες φορές επιλέγω μουσική που μπορεί να με κάνει να ανατριχιάσω.", likert_options, index=None, key="q1_goldmsi_e")
+q2_goldmsi_e = st.radio("Σπάνια τα μουσικά κομμάτια μου προκαλούν συναισθήματα.", likert_options, index=None, key="q2_goldmsi_e")
+q3_goldmsi_e = st.radio("Συχνά επιλέγω συγκεκριμένη μουσική για να με παρακινήσει ή να με ενθουσιάσει.", likert_options, index=None, key="q3_goldmsi_e")
+q4_goldmsi_e = st.radio("Μπορώ να προσδιορίσω τι είναι ιδιαίτερο σε ένα συγκεκριμένο μουσικό κομμάτι.", likert_options, index=None, key="q4_goldmsi_e")
+q5_goldmsi_e = st.radio("Μπορώ να μιλήσω για τα συναισθήματα που μου προκαλεί ένα μουσικό κομμάτι.", likert_options, index=None, key="q5_goldmsi_e")
+q6_goldmsi_e = st.radio("Η μουσική μπορεί να μου ανακαλέσει αναμνήσεις από ανθρώπους και μέρη του παρελθόντος.", likert_options, index=None, key="q6_goldmsi_e")
 
 # TIPI
 st.markdown("## Προσωπικότητα")
