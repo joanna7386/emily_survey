@@ -114,6 +114,8 @@ q8_tipi = st.radio("Ανοργάνωτο, απρόσεκτο", tipi_options, ind
 q9_tipi = st.radio("Ήρεμο, συναισθηματικά σταθερό", tipi_options, index=None, key="q9_tipi")
 q10_tipi = st.radio("Συμβατικό, μη δημιουργικό", tipi_options, index=None, key="q10_tipi")
 
+st.markdown("---")
+
 #
 st.markdown("## Νοοτροπία για τη Δημιουργικότητα")
 st.markdown("**Διαλέξτε την απάντηση στην παρακάτω κλίμακα που δείχνει πόσο καλά κάθε επίθετο ή φράση περιγράφει την παρούσα διάθεσή σας.**")
@@ -131,32 +133,7 @@ q8_cms = st.radio("Μερικοί άνθρωποι είναι δημιουργι
 q9_cms = st.radio("Δεν έχει σημασία ποιο επίπεδο δημιουργικότητας επιδεικνύει κάποιος - μπορείς πάντα να το αυξήσεις", cms_options, index=None, key="q9_mindset", horizontal=True)
 q10_cms = st.radio("Το πραγματικά δημιουργικό ταλέντο είναι έμφυτο και σταθερό σε ολόκληρη τη ζωή του ατόμου", cms_options, index=None, key="q10_mindset", horizontal=True)
 
-# BMIS
-st.markdown("## Διάθεση")
-st.markdown("**Διαλέξτε την απάντηση στην παρακάτω κλίμακα που δείχνει πόσο καλά κάθε επίθετο ή φράση περιγράφει την παρούσα διάθεσή σας.**")
-
-bmis_options = [
-    "1  Σίγουρα δεν νιώθω",
-    "2", "3", "4", "5", "6",
-    "7  Σίγουρα νιώθω"
-]
-
-q1_bmis = st.radio("Ζωηρός", bmis_options, index=None, key="q1_mood", horizontal=True)
-q2_bmis = st.radio("Χαρούμενος", bmis_options, index=None, key="q2_mood", horizontal=True)
-q3_bmis = st.radio("Λυπημένος", bmis_options, index=None, key="q3_mood", horizontal=True)
-q4_bmis = st.radio("Κουρασμένος", bmis_options, index=None, key="q4_mood", horizontal=True)
-q5_bmis = st.radio("Caring", bmis_options, index=None, key="q5_mood", horizontal=True)
-q6_bmis = st.radio("Ευχαριστημένος (Content)", bmis_options, index=None, key="q6_mood", horizontal=True)
-q7_bmis = st.radio("Κακόκεφος (Gloomy)", bmis_options, index=None, key="q7_mood", horizontal=True)
-q8_bmis = st.radio("Νευρικός", bmis_options, index=None, key="q8_mood", horizontal=True)
-q9_bmis = st.radio("Νυσταγμένος", bmis_options, index=None, key="q9_mood", horizontal=True)
-q10_bmis = st.radio("Γκρινιάρης", bmis_options, index=None, key="q10_mood", horizontal=True)
-q11_bmis = st.radio("Ζωηρός (peppy)", bmis_options, index=None, key="q11_mood", horizontal=True)
-q12_bmis = st.radio("Αγχωμένος", bmis_options, index=None, key="q12_mood", horizontal=True)
-q13_bmis = st.radio("Ήρεμος", bmis_options, index=None, key="q13_mood", horizontal=True)
-q14_bmis = st.radio("Τρυφερός (loving)", bmis_options, index=None, key="q14_mood", horizontal=True)
-q15_bmis = st.radio("Fed up", bmis_options, index=None, key="q15_mood", horizontal=True)
-q16_bmis = st.radio("Δραστήριος", bmis_options, index=None, key="q16_mood", horizontal=True)
+st.markdown("---")
 
 # HSP
 st.markdown("## Ευαισθησία στο Περιβάλλον")
@@ -177,6 +154,8 @@ q9_hsp = st.radio("Οι αλλαγές στη ζωή σας σάς αναστα�
 q10_hsp = st.radio("Παρατηρείτε και απολαμβάνετε λεπτές ή εκλεκτές μυρωδιές, γεύσεις, ήχους, έργα τέχνης;", hsp_scale, index=None, key="q10_sensitivity", horizontal=True)
 q11_hsp = st.radio("Σας ενοχλούν έντονα ερεθίσματα, όπως δυνατοί θόρυβοι ή χαοτικές σκηνές;", hsp_scale, index=None, key="q11_sensitivity", horizontal=True)
 q12_hsp = st.radio("Όταν πρέπει να ανταγωνιστείτε ή να σας παρατηρούν ενώ εκτελείτε μια εργασία, γίνεστε τόσο νευρικός/ή ή τρέμετε με αποτέλεσμα να αποδίδετε πολύ χειρότερα από ό,τι θα κάνατε διαφορετικά;", hsp_scale, index=None, key="q12_sensitivity", horizontal=True)
+
+st.markdown("---")
 
 # IRI
 st.markdown("## Διαπροσωπική Ανταπόκριση")
@@ -219,6 +198,8 @@ q26_iri = st.radio("26. Όταν διαβάζω μια ενδιαφέρουσα 
 q27_iri = st.radio("27. Όταν βλέπω κάποιον που χρειάζεται άμεσα βοήθεια σε μια κρίσιμη κατάσταση, αποδιοργανώνομαι", iri_options, index=None, key="q27_iri", horizontal=True)
 q28_iri = st.radio("28. Πριν κριτικάρω κάποιον προσπαθώ να φανταστώ πως θα αισθανόμουν εγώ στη θέση του", iri_options, index=None, key="q28_iri", horizontal=True)
 
+st.markdown("---")
+
 # EMOTCONT
 st.markdown("## Συναισθηματική Μετάδοση")
 st.markdown("Απάντησε σύμφωνα με τον δικό σου τρόπο να σκέφτεσαι, να αισθάνεσαι και να ενεργείς σε διάφορες καταστάσεις:")
@@ -241,4 +222,33 @@ q13_emotcont = st.radio("13. Καταλαβαίνω ότι φορτίζομαι 
 q14_emotcont = st.radio("14. Κλαίω, όταν βλέπω λυπητερά έργα.", emotcont_options, index=None, key="q14_emotcont", horizontal=True)
 q15_emotcont = st.radio("15. Εάν τύχει να ακούσω την κραυγή ενός τρομαγμένου παιδιού, στην αίθουσα αναμονής του οδοντιατρείου, γίνομαι νευρικός/ή.", emotcont_options, index=None, key="q15_emotcont", horizontal=True)
 
+st.markdown("---")
 
+# BMIS
+st.markdown("## Διάθεση")
+st.markdown("**Διαλέξτε την απάντηση στην παρακάτω κλίμακα που δείχνει πόσο καλά κάθε επίθετο ή φράση περιγράφει την παρούσα διάθεσή σας.**")
+
+bmis_options = [
+    "1  Σίγουρα δεν νιώθω",
+    "2", "3", "4", "5", "6",
+    "7  Σίγουρα νιώθω"
+]
+
+q1_bmis = st.radio("Ζωηρός", bmis_options, index=None, key="q1_mood", horizontal=True)
+q2_bmis = st.radio("Χαρούμενος", bmis_options, index=None, key="q2_mood", horizontal=True)
+q3_bmis = st.radio("Λυπημένος", bmis_options, index=None, key="q3_mood", horizontal=True)
+q4_bmis = st.radio("Κουρασμένος", bmis_options, index=None, key="q4_mood", horizontal=True)
+q5_bmis = st.radio("Caring", bmis_options, index=None, key="q5_mood", horizontal=True)
+q6_bmis = st.radio("Ευχαριστημένος (Content)", bmis_options, index=None, key="q6_mood", horizontal=True)
+q7_bmis = st.radio("Κακόκεφος (Gloomy)", bmis_options, index=None, key="q7_mood", horizontal=True)
+q8_bmis = st.radio("Νευρικός", bmis_options, index=None, key="q8_mood", horizontal=True)
+q9_bmis = st.radio("Νυσταγμένος", bmis_options, index=None, key="q9_mood", horizontal=True)
+q10_bmis = st.radio("Γκρινιάρης", bmis_options, index=None, key="q10_mood", horizontal=True)
+q11_bmis = st.radio("Ζωηρός (peppy)", bmis_options, index=None, key="q11_mood", horizontal=True)
+q12_bmis = st.radio("Αγχωμένος", bmis_options, index=None, key="q12_mood", horizontal=True)
+q13_bmis = st.radio("Ήρεμος", bmis_options, index=None, key="q13_mood", horizontal=True)
+q14_bmis = st.radio("Τρυφερός (loving)", bmis_options, index=None, key="q14_mood", horizontal=True)
+q15_bmis = st.radio("Fed up", bmis_options, index=None, key="q15_mood", horizontal=True)
+q16_bmis = st.radio("Δραστήριος", bmis_options, index=None, key="q16_mood", horizontal=True)
+
+st.markdown("---")
