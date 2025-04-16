@@ -36,7 +36,6 @@ q1_music_style = st.radio(
     index=None,
     key="q1_music_style"
 )
-
 if q1_music_style == "Άλλο":
     q1_music_style_other = st.text_input("Παρακαλώ διευκρινίστε:", key="q1_music_style_other")
 else:
@@ -51,13 +50,30 @@ q_music_training_style = st.radio(
     index=None,
     key="q_music_training_style"
 )
-
 if q_music_training_style == "Άλλο":
     q_music_training_style_other = st.text_input("Παρακαλώ διευκρινίστε:", key="q_music_training_style_other")
 else:
     q_music_training_style_other = ""
 
 st.markdown("---")
+
+# ΕΜΠΕΙΡΙΑ ΜΕ ΑΥΤΟΣΧΕΔΙΑΣΜΟ
+st.markdown("## Εμπειρία με τον Αυτοσχεδιασμό")
+
+q1_improv = st.select_slider("Πόσο εξοικειωμένος/η αισθάνεστε με τον μουσικό αυτοσχεδιασμό;", options=["1", "2", "3", "4", "5", "6", "7"], key="q1_improv")
+st.caption("1 = Καθόλου, 7 = Πάρα πολύ")
+
+q2_improv = st.selectbox("Πόσα χρόνια ασκείστε στον μουσικό αυτοσχεδιασμό;", ["0", "0.5", "1", "2", "3", "4-6", "7-10", "11 ή περισσότερα"], index=None, key="q2_improv")
+
+q3_improv = st.multiselect(
+    "Πώς μάθατε να αυτοσχεδιάζετε;",
+    ["Επίσημη εκπαίδευση", "Αυτοδίδακτα", "Σε σύνολο/ομάδα", "Μόνος/η μου", "Άλλο"], key="q3_improv")
+if "Άλλο" in q3_improv:
+    q3_improv_other = st.text_input("Παρακαλώ διευκρινίστε:", key="q3_improv_other")
+else:
+    q3_improv_other = ""
+
+q4_improv = st.selectbox("Πόσες φορές έχετε αυτοσχεδιάσει ζωντανά (σε κοινό);", ["0", "1", "2-5", "6-10", "11-20", "21 ή περισσότερες"], index=None, key="q4_improv")
 
 # GOLD-MSI
 # ΕΝΕΡΓΟΣ ΕΝΑΣΧΟΛΗΣΗ
