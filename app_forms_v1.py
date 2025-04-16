@@ -83,7 +83,6 @@ q3_improv = st.radio(
     index=None,
     key="q3_improv"
 )
-
 if q3_improv == "Άλλο":
     q3_improv_other = st.text_input("Παρακαλώ διευκρινίστε:", key="q3_improv_other")
 else:
