@@ -206,20 +206,7 @@ st.markdown("Απάντησε σύμφωνα με τον δικό σου τρό�
 
 emotcont_options = ["1  Ποτέ", "2", "3", "4", "5  Πάντα"]
 
-emotcont_options = ["1", "2", "3", "4", "5"]
-
-q1_emotcont = st.select_slider(
-    "1. Εάν ο συνομιλητής μου αρχίζει να κλαίει, τότε μου έρχονται δάκρυα στα μάτια.",
-    options=emotcont_options,
-    format_func=lambda x: {
-        "1": "1\nΠοτέ",
-        "2": "2",
-        "3": "3",
-        "4": "4",
-        "5": "5\nΠάντα"
-    }[x],
-    key="q1_emotcont"
-)
+q1_emotcont = st.radio("1. Εάν ο συνομιλητής μου αρχίζει να κλαίει, τότε μου έρχονται δάκρυα στα μάτια.", emotcont_options, index=None, key="q1_emotcont", horizontal=True)
 q2_emotcont = st.radio("2. Το να είμαι με κάποιον που είναι χαρούμενος, με κάνει να αισθάνομαι καλύτερα όταν είμαι στεναχωρημένος.", emotcont_options, index=None, key="q2_emotcont", horizontal=True)
 q3_emotcont = st.radio("3. Όταν κάποιος μου χαμογελά εγκάρδια, ανταποδίδω το χαμόγελό του και αισθάνομαι όμορφα μέσα μου.", emotcont_options, index=None, key="q3_emotcont", horizontal=True)
 q4_emotcont = st.radio("4. Γεμίζω με συναισθήματα λύπης όταν κάποιος μου διηγείται τον θάνατο κάποιου αγαπημένου του προσώπου.", emotcont_options, index=None, key="q4_emotcont", horizontal=True)
