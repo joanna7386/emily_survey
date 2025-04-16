@@ -21,7 +21,7 @@ st.text_input("Το μουσικό όργανο που παίζω καλύτερ
 
 genre_listen_options = ["Ροκ/ποπ", "Τζαζ", "Κλασική", "Ελληνική παραδοσιακή", "Άλλο"]
 
-q1_music_style = st.radio("Ποιο είναι το μουσικό είδος που ακούτε κυρίως;", genre_listen_options, index=None, key="q1_music_style")
+q1_music_style = st.radio("Ποιο είδος μουσικής ακούτε περισσότερο;", genre_listen_options, index=None, key="q1_music_style")
 
 if q1_music_style == "Άλλο":
     q1_music_style_other = st.text_input("Παρακαλώ διευκρινίστε:", key="q1_music_style_other")
