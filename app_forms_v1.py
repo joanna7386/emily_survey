@@ -7,7 +7,7 @@ st.set_page_config(layout="wide")
 st.title("Ερωτηματολόγιο")  # Survey title
 st.markdown("## Δημογραφικά Στοιχεία")
 
-# Ηλικία (numeric input)
+# ΔΗΜΟΓΡΑΦΙΚΑ
 age = st.number_input("Ηλικία", min_value=17, max_value=80, step=1, format="%d", value=None, placeholder="Πληκτρολογήστε την ηλικία σας")
 
 gender = st.selectbox(
@@ -15,39 +15,39 @@ gender = st.selectbox(
     ["", "Γυναίκα", "Άντρας", "Μη-δυαδικό", "Προτιμώ να μην πω"]
 )
 
+# ΕΡΩΤΗΣΕΙΣ ΓΙΑ ΜΟΥΣΙΚΗ ΕΜΠΕΙΡΙΑ
 st.markdown("## Ενασχόληση με τη Μουσική")
 
 st.text_input("Το μουσικό όργανο που παίζω καλύτερα (συμπεριλαμβανομένης της φωνής) είναι:", placeholder="π.χ. πιάνο, κιθάρα, φλάουτο, φωνή", key="instrument_goldmsi")
 
-genre_listen_options = ["Ροκ/ποπ", "Τζαζ", "Κλασική", "Ελληνική παραδοσιακή", "Άλλο"]
-
+genre_listen_options = ["Ροκ/ποπ", "Τζαζ", "Κλασική", "Ελληνική παραδοσιακή", "Άλλο", "Κανένα"]
 q1_music_style = st.radio("Ποιο είδος μουσικής ακούτε περισσότερο;", genre_listen_options, index=None, key="q1_music_style")
-
 if q1_music_style == "Άλλο":
     q1_music_style_other = st.text_input("Παρακαλώ διευκρινίστε:", key="q1_music_style_other")
 else:
     q1_music_style_other = ""
 
-genre_training_options = ["Ροκ/ποπ", "Τζαζ", "Κλασική", "Ελληνική παραδοσιακή", "Άλλο", "Καμία"]
+genre_training_options = ["Ροκ/ποπ", "Τζαζ", "Κλασική", "Ελληνική παραδοσιακή", "Άλλο", "Κανένα"]
 
-q2_music_training = st.radio("Σε ποιο μουσικό είδος έχετε εκπαιδευτεί;", genre_training_options, index=None, key="q2_music_training")
-
-if q2_music_training == "Άλλο":
-    q2_music_training_other = st.text_input("Παρακαλώ διευκρινίστε:", key="q2_music_training_other")
+q_music_training_style = st.radio(
+    "Σε ποιο είδος μουσικής έχετε λάβει εκπαίδευση ή είστε αυτοδίδακτος/η (αν δεν έχετε, επιλέξτε 'Κανένα');",
+    genre_training_options,
+    index=None,
+    key="q_music_training_style",
+    horizontal=False
+)
+if q_music_training_style == "Άλλο":
+    q_music_training_style_other = st.text_input("Παρακαλώ διευκρινίστε:", key="q_music_training_style_other")
 else:
-    q2_music_training_other = ""
+    q_music_training_style_other = ""
 
 
+# GOLD-MSI
 st.markdown("Παρακαλώ επιλέξτε αυτό που ταιριάζει στην περίπτωσή σας.")
 
 likert_options = [
-    "Συμφωνώ απολύτως",
-    "Συμφωνώ εντόνως",
-    "Συμφωνώ",
-    "Ούτε συμφωνώ ούτε διαφωνώ",
-    "Διαφωνώ",
-    "Διαφωνώ εντόνως",
-    "Διαφωνώ πλήρως"
+    "Συμφωνώ απολύτως", "Συμφωνώ εντόνως", "Συμφωνώ", "Ούτε συμφωνώ ούτε διαφωνώ",
+    "Διαφωνώ", "Διαφωνώ εντόνως", "Διαφωνώ πλήρως"
 ]
 
 q1_goldmsi = st.radio("Περνάω πολύ από τον ελεύθερο χρόνο μου σε δραστηριότητες που σχετίζονται με τη μουσική.", likert_options, index=None, key="q1_goldmsi")
@@ -82,18 +82,14 @@ q19_goldmsi = st.radio("Μπορώ να προσδιορίσω τι είναι �
 q20_goldmsi = st.radio("Μπορώ να μιλήσω για τα συναισθήματα που μου προκαλεί ένα μουσικό κομμάτι.", likert_options, index=None, key="q20_goldmsi")
 q21_goldmsi = st.radio("Η μουσική μπορεί να μου ανακαλέσει αναμνήσεις από ανθρώπους και μέρη του παρελθόντος.", likert_options, index=None, key="q21_goldmsi")
 
-
+# TIPI
 st.markdown("## Προσωπικότητα")
 st.markdown("**Βλέπω τον εαυτό μου ως:**")
 
 tipi_options = [
-    "Διαφωνώ απόλυτα",
-    "Διαφωνώ μέτρια",
-    "Διαφωνώ λίγο",
+    "Διαφωνώ απόλυτα", "Διαφωνώ μέτρια", "Διαφωνώ λίγο",
     "Δεν συμφωνώ ούτε διαφωνώ",
-    "Συμφωνώ λίγο",
-    "Συμφωνώ μέτρια",
-    "Συμφωνώ απόλυτα"
+    "Συμφωνώ λίγο", "Συμφωνώ μέτρια", "Συμφωνώ απόλυτα"
 ]
 
 q1_tipi = st.radio("Εξωστρεφή, ενθουσιώδη", tipi_options, index=None, key="q1_tipi")
@@ -107,7 +103,7 @@ q8_tipi = st.radio("Ανοργάνωτο, απρόσεκτο", tipi_options, ind
 q9_tipi = st.radio("Ήρεμο, συναισθηματικά σταθερό", tipi_options, index=None, key="q9_tipi")
 q10_tipi = st.radio("Συμβατικό, μη δημιουργικό", tipi_options, index=None, key="q10_tipi")
 
-
+#
 st.markdown("## Νοοτροπία για τη Δημιουργικότητα")
 st.markdown("Διαλέξτε την απάντηση στην παρακάτω κλίμακα που δείχνει πόσο καλά κάθε επίθετο ή φράση περιγράφει την παρούσα διάθεσή σας.")
 
@@ -128,7 +124,7 @@ q8_cms = st.radio("Μερικοί άνθρωποι είναι δημιουργι
 q9_cms = st.radio("Δεν έχει σημασία ποιο επίπεδο δημιουργικότητας επιδεικνύει κάποιος - μπορείς πάντα να το αυξήσεις", cms_options, index=None, key="q9_mindset", horizontal=True)
 q10_cms = st.radio("Το πραγματικά δημιουργικό ταλέντο είναι έμφυτο και σταθερό σε ολόκληρη τη ζωή του ατόμου", cms_options, index=None, key="q10_mindset", horizontal=True)
 
-
+# BMIS
 st.markdown("## Διάθεση")
 st.markdown("Διαλέξτε την απάντηση στην παρακάτω κλίμακα που δείχνει πόσο καλά κάθε επίθετο ή φράση περιγράφει την παρούσα διάθεσή σας.")
 
@@ -155,7 +151,7 @@ q14_bmis = st.radio("Τρυφερός (loving)", bmis_options, index=None, key="
 q15_bmis = st.radio("Fed up", bmis_options, index=None, key="q15_mood", horizontal=True)
 q16_bmis = st.radio("Δραστήριος", bmis_options, index=None, key="q16_mood", horizontal=True)
 
-
+# HSP
 st.markdown("## Κλίμακα Ευαισθησίας στο Περιβάλλον")
 st.markdown("Απαντήστε σε κάθε ερώτηση σύμφωνα με τον τρόπο που προσωπικά αισθάνεστε, χρησιμοποιώντας την ακόλουθη κλίμακα:")
 st.markdown("**1 = Καθόλου  4 = Μέτρια  7 = Πάρα πολύ**")
@@ -175,8 +171,8 @@ q10_hsp = st.radio("10. Παρατηρείτε και απολαμβάνετε �
 q11_hsp = st.radio("11. Σας ενοχλούν έντονα ερεθίσματα, όπως δυνατοί θόρυβοι ή χαοτικές σκηνές;", hsp_scale, index=None, key="q11_sensitivity")
 q12_hsp = st.radio("12. Όταν πρέπει να ανταγωνιστείτε ή να σας παρατηρούν ενώ εκτελείτε μια εργασία, γίνεστε τόσο νευρικός/ή ή τρέμετε με αποτέλεσμα να αποδίδετε πολύ χειρότερα από ό,τι θα κάνατε διαφορετικά;", hsp_scale, index=None, key="q12_sensitivity")
 
-
-st.markdown("## Κλίμακα Διαπροσωπικής Ανταπόκρισης (IRI)")
+# IRI
+st.markdown("## Διαπροσωπική Ανταπόκριση")
 st.markdown("Για κάθε δήλωση, προσδιορίστε πόσο καλά σας περιγράφει:")
 
 iri_options = [
@@ -216,17 +212,11 @@ q26_iri = st.radio("26. Όταν διαβάζω μια ενδιαφέρουσα 
 q27_iri = st.radio("27. Όταν βλέπω κάποιον που χρειάζεται άμεσα βοήθεια σε μια κρίσιμη κατάσταση, αποδιοργανώνομαι", iri_options, index=None, key="q27_iri", horizontal=True)
 q28_iri = st.radio("28. Πριν κριτικάρω κάποιον προσπαθώ να φανταστώ πως θα αισθανόμουν εγώ στη θέση του", iri_options, index=None, key="q28_iri", horizontal=True)
 
-
-st.markdown("## Κλίμακα Συναισθηματικής Μετάδοσης (Emotional Contagion Scale - EC)")
+# EMOTCONT
+st.markdown("## Συναισθηματική Μετάδοση")
 st.markdown("Απάντησε σύμφωνα με τον δικό σου τρόπο να σκέφτεσαι, να αισθάνεσαι και να ενεργείς σε διάφορες καταστάσεις:")
 
-emotcont_options = [
-    "1  (Ποτέ)",
-    "2",
-    "3",
-    "4",
-    "5  (Πάντα)"
-]
+emotcont_options = ["1  (Ποτέ)", "2", "3", "4", "5  (Πάντα)"]
 
 q1_emotcont = st.radio("1. Εάν ο συνομιλητής μου αρχίζει να κλαίει, τότε μου έρχονται δάκρυα στα μάτια.", emotcont_options, index=None, key="q1_emotcont", horizontal=True)
 q2_emotcont = st.radio("2. Το να είμαι με κάποιον που είναι χαρούμενος, με κάνει να αισθάνομαι καλύτερα όταν είμαι στεναχωρημένος.", emotcont_options, index=None, key="q2_emotcont", horizontal=True)
