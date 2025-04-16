@@ -230,8 +230,9 @@ st.markdown("---")
 # BMIS
 st.markdown("## Διάθεση")
 st.markdown("**Διαλέξτε την απάντηση στην παρακάτω κλίμακα που δείχνει πόσο καλά κάθε επίθετο ή φράση περιγράφει την παρούσα διάθεσή σας.**")
+st.markdown("**1 = Σίγουρα δεν νιώθω  7 = Σίγουρα νιώθω**")
 
-bmis_options = ["1  Σίγουρα δεν νιώθω", "2", "3", "4", "5", "6", "7  Σίγουρα νιώθω"
+bmis_options = ["1", "2", "3", "4", "5", "6", "7"
 ]
 
 q1_bmis = st.radio("Ζωηρός", bmis_options, index=None, key="q1_mood", horizontal=True)
@@ -250,5 +251,7 @@ q13_bmis = st.radio("Ήρεμος", bmis_options, index=None, key="q13_mood", ho
 q14_bmis = st.radio("Τρυφερός (loving)", bmis_options, index=None, key="q14_mood", horizontal=True)
 q15_bmis = st.radio("Fed up", bmis_options, index=None, key="q15_mood", horizontal=True)
 q16_bmis = st.radio("Δραστήριος", bmis_options, index=None, key="q16_mood", horizontal=True)
+
+st.markdown("**1 = Σίγουρα δεν νιώθω  7 = Σίγουρα νιώθω**")
 
 st.markdown("---")
