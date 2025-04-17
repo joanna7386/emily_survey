@@ -4,16 +4,12 @@ from datetime import datetime
 
 st.set_page_config(layout="wide")
 
+# ΔΗΜΟΓΡΑΦΙΚΑ
 st.title("Ερωτηματολόγιο")  # Survey title
 st.markdown("## Δημογραφικά Στοιχεία")
 
-# ΔΗΜΟΓΡΑΦΙΚΑ
 age = st.number_input("Ηλικία", min_value=17, max_value=80, step=1, format="%d", value=None, placeholder="Πληκτρολογήστε την ηλικία σας")
-
-gender = st.selectbox(
-    "Φύλο",
-    ["", "Γυναίκα", "Άντρας", "Μη-δυαδικό", "Προτιμώ να μην πω"]
-)
+gender = st.selectbox("Φύλο",["", "Γυναίκα", "Άντρας", "Μη-δυαδικό", "Προτιμώ να μην πω"])
 
 st.markdown("---")
 

@@ -4,10 +4,6 @@ from datetime import datetime
 
 st.set_page_config(layout="wide")
 
-# Add progress bar (example value, adjust as needed)
-st.markdown("### Πρόοδος ερωτηματολογίου")
-st.progress(0.35)  # Replace 0.35 with appropriate completion %
-
 
 # ΔΗΜΟΓΡΑΦΙΚΑ
 st.title("Ερωτηματολόγιο")  # Survey title
