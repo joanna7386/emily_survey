@@ -12,6 +12,10 @@ st.markdown("## Δημογραφικά Στοιχεία")
 age = st.number_input("Ηλικία", min_value=17, max_value=80, step=1, format="%d", value=None, placeholder="Πληκτρολογήστε την ηλικία σας")
 gender = st.selectbox("Φύλο",["", "Γυναίκα", "Άντρας", "Μη-δυαδικό", "Προτιμώ να μην πω"])
 
+# Validation check
+if (age is None) or (gender == ""):
+    st.warning("Παρακαλώ συμπληρώστε την ηλικία σας και επιλέξτε φύλο πριν συνεχίσετε.")
+
 st.markdown("---")
 
 # ΕΝΑΣΧΟΛΗΣΗ ΜΕ ΤΗ ΜΟΥΣΙΚΗ
@@ -280,6 +284,8 @@ q15_bmis = st.radio("Απαυδισμένος/η", bmis_options, index=None, key
 q16_bmis = st.radio("Δραστήριος/α", bmis_options, index=None, key="q16_mood", horizontal=True)
 
 st.markdown("**1 = Σίγουρα δεν νιώθω  7 = Σίγουρα νιώθω**")
+
+st.markdown("---")
 
 if st.button("Υποβολή απαντήσεων"):
     responses = {key: value for key, value in st.session_state.items()}
