@@ -14,7 +14,7 @@ gender = st.selectbox("Φύλο",["", "Γυναίκα", "Άντρας", "Μη-δ
 
 # Validation check
 if (age is None) or (gender == ""):
-    st.warning("Παρακαλώ συμπληρώστε την ηλικία σας και επιλέξτε φύλο πριν συνεχίσετε.")
+    st.warning("Παρακαλώ συμπληρώστε όλα τα παραπάνω πεδία πριν συνεχίσετε.")
 
 st.markdown("---")
 
@@ -54,6 +54,17 @@ else:
     q_music_training_style_other = ""
 
 q_learning = st.radio("Πώς αποκτήσατε τη μουσική σας εκπαίδευση/εμπειρία;", ["Επίσημη εκπαίδευση", "Αυτοδίδακτα", "Και τα δύο", "Δεν έχω μουσική εμπειρία"], index=None)
+
+# Validation check
+if (
+    st.session_state.instrument_goldmsi.strip() == "" or
+    q1_music_style is None or
+    (q1_music_style == "Άλλο" and q1_music_style_other.strip() == "") or
+    q_music_training_style is None or
+    (q_music_training_style == "Άλλο" and q_music_training_style_other.strip() == "") or
+    q_learning is None
+):
+    st.warning("Παρακαλώ συμπληρώστε όλα τα παραπάνω πεδία πριν συνεχίσετε.")
 
 st.markdown("---")
 
