@@ -4,6 +4,21 @@ from datetime import datetime
 
 st.set_page_config(layout="wide")
 
+def validate_required_fields(field_values, section_title="αυτή την ενότητα"):
+    """
+    Checks if all fields in the list are filled in.
+    If any field is None or empty (for strings), shows a warning.
+
+    Parameters:
+    - field_values (list): List of variables to check.
+    - section_title (str): Optional title to show in the warning.
+    """
+    for val in field_values:
+        if val is None or (isinstance(val, str) and val.strip() == ""):
+            st.warning(f"Παρακαλώ απαντήστε σε όλες τις ερωτήσεις της παραπάνω ενότητας.")
+            return False
+    return True
+
 
 # ΔΗΜΟΓΡΑΦΙΚΑ
 st.title("Ερωτηματολόγιο")  # Survey title
@@ -13,8 +28,7 @@ age = st.number_input("Ηλικία", min_value=17, max_value=80, step=1, format
 gender = st.selectbox("Φύλο",["", "Γυναίκα", "Άντρας", "Μη-δυαδικό", "Προτιμώ να μην πω"])
 
 # Validation check
-if (age is None) or (gender == ""):
-    st.warning("Παρακαλώ συμπληρώστε όλα τα παραπάνω πεδία πριν συνεχίσετε.")
+valid_demo = validate_required_fields([age, gender], section_title="Δημογραφικά Στοιχεία")
 
 st.markdown("---")
 
@@ -103,6 +117,18 @@ q4_improv = st.radio(
     key="q4_improv", horizontal=True,
 )
 
+# Validation check
+if (
+    q1_improv is None or
+    q2_improv is None or
+    len(q3_improv) == 0 or
+    ("Άλλο" in q3_improv and q3_improv_other.strip() == "") or
+    q4_improv is None
+):
+    st.warning("Παρακαλώ συμπληρώστε όλα τα παραπάνω πεδία για την εμπειρία με τον αυτοσχεδιασμό.")
+
+st.markdown("---")
+
 # GOLD-MSI
 # ΕΝΕΡΓΟΣ ΕΝΑΣΧΟΛΗΣΗ
 st.markdown("## Ενεργός ενασχόληση με τη μουσική")
@@ -121,6 +147,22 @@ q7_goldmsi_ae = st.radio("Παρακολουθώ την καινούργια μ�
 q8_goldmsi_ae = st.radio("Έχω παρακολουθήσει __ ζωντανές μουσικές εκδηλώσεις ως ακροατής τους τελευταίους δώδεκα μήνες.", ["0", "1", "2", "3", "4-6", "7-10", "11 ή περισσότερες"], index=None, key="q8_goldmsi_ae", horizontal=True)
 q9_goldmsi_ae = st.radio("Ακούω με προσοχή μουσική __ την ημέρα.", ["0-15 λεπτά", "15-30 λεπτά", "30-60 λεπτά", "60-90 λεπτά", "2 ώρες", "2-3 ώρες", "4 ώρες ή περισσότερο"], index=None, key="q9_goldmsi_ae", horizontal=True)
 
+# Validation check
+if (
+    q1_goldmsi_ae is None or
+    q2_goldmsi_ae is None or
+    q3_goldmsi_ae is None or
+    q4_goldmsi_ae is None or
+    q5_goldmsi_ae is None or
+    q6_goldmsi_ae is None or
+    q7_goldmsi_ae is None or
+    q8_goldmsi_ae is None or
+    q9_goldmsi_ae is None
+):
+    st.warning("Παρακαλώ απαντήστε σε όλες τις ερωτήσεις της ενότητας 'Ενεργός ενασχόληση με τη μουσική'.")
+
+st.markdown("---")
+
 st.markdown("## Μουσική εκπαίδευση")
 
 q1_goldmsi_mt = st.radio("Ποτέ δεν έχω λάβει κοπλιμέντα για τα ταλέντα μου ως μουσικός ερμηνευτής.", likert_options, index=None, key="q1_goldmsi_mt", horizontal=True)
@@ -130,6 +172,21 @@ q4_goldmsi_mt = st.radio("Στο αποκορύφωμα του ενδιαφέρ�
 q5_goldmsi_mt = st.radio("Έχω λάβει επίσημα μαθήματα θεωρίας της μουσικής __ χρόνια.", ["0", "0,5", "1", "2", "3", "4-6", "7 ή περισσότερα"], index=None, horizontal=True, key="q5_goldmsi_mt")
 q6_goldmsi_mt = st.radio("Έχω λάβει __ χρόνια επίσημη εκπαίδευση σε ένα μουσικό όργανο (συμπεριλαμβανομένης της φωνής) κατά τη διάρκεια της ζωής μου.", ["0", "0,5", "1", "2", "3-5", "6-9", "10 ή περισσότερα"], index=None, horizontal=True, key="q6_goldmsi_mt")
 q7_goldmsi_mt = st.radio("Μπορώ να παίξω ___ μουσικά όργανα.", ["0", "1", "2", "3", "4", "5", "6 ή περισσότερα"], index=None, horizontal=True, key="q7_goldmsi_mt")
+
+# Validation check
+if (
+    q1_goldmsi_mt is None or
+    q2_goldmsi_mt is None or
+    q3_goldmsi_mt is None or
+    q4_goldmsi_mt is None or
+    q5_goldmsi_mt is None or
+    q6_goldmsi_mt is None or
+    q7_goldmsi_mt is None
+):
+    st.warning("Παρακαλώ απαντήστε σε όλες τις ερωτήσεις της ενότητας 'Μουσική εκπαίδευση'.")
+
+
+st.markdown("---")
 
 # TIPI
 st.markdown("## Προσωπικότητα")
