@@ -111,14 +111,7 @@ q4_improv = st.radio(
 )
 
 # Validation check
-if (
-    q1_improv is None or
-    q2_improv is None or
-    len(q3_improv) == 0 or
-    ("Άλλο" in q3_improv and q3_improv_other.strip() == "") or
-    q4_improv is None
-):
-    st.warning("Παρακαλώ συμπληρώστε όλα τα παραπάνω πεδία για την εμπειρία με τον αυτοσχεδιασμό.")
+valid_improv = validate_required_fields([q1_improv,q2_improv,q3_improv,q3_improv_other if "Άλλο" in q3_improv else "ok",q4_improv,])
 
 st.markdown("---")
 
@@ -141,18 +134,19 @@ q8_goldmsi_ae = st.radio("Έχω παρακολουθήσει __ ζωντανέ�
 q9_goldmsi_ae = st.radio("Ακούω με προσοχή μουσική __ την ημέρα.", ["0-15 λεπτά", "15-30 λεπτά", "30-60 λεπτά", "60-90 λεπτά", "2 ώρες", "2-3 ώρες", "4 ώρες ή περισσότερο"], index=None, key="q9_goldmsi_ae", horizontal=True)
 
 # Validation check
-if (
-    q1_goldmsi_ae is None or
-    q2_goldmsi_ae is None or
-    q3_goldmsi_ae is None or
-    q4_goldmsi_ae is None or
-    q5_goldmsi_ae is None or
-    q6_goldmsi_ae is None or
-    q7_goldmsi_ae is None or
-    q8_goldmsi_ae is None or
-    q9_goldmsi_ae is None
-):
-    st.warning("Παρακαλώ απαντήστε σε όλες τις ερωτήσεις της ενότητας 'Ενεργός ενασχόληση με τη μουσική'.")
+valid_goldmsi_ae = validate_required_fields(
+    [
+        q1_goldmsi_ae,
+        q2_goldmsi_ae,
+        q3_goldmsi_ae,
+        q4_goldmsi_ae,
+        q5_goldmsi_ae,
+        q6_goldmsi_ae,
+        q7_goldmsi_ae,
+        q8_goldmsi_ae,
+        q9_goldmsi_ae,
+    ]
+)
 
 st.markdown("---")
 
@@ -167,17 +161,17 @@ q6_goldmsi_mt = st.radio("Έχω λάβει __ χρόνια επίσημη εκ�
 q7_goldmsi_mt = st.radio("Μπορώ να παίξω ___ μουσικά όργανα.", ["0", "1", "2", "3", "4", "5", "6 ή περισσότερα"], index=None, horizontal=True, key="q7_goldmsi_mt")
 
 # Validation check
-if (
-    q1_goldmsi_mt is None or
-    q2_goldmsi_mt is None or
-    q3_goldmsi_mt is None or
-    q4_goldmsi_mt is None or
-    q5_goldmsi_mt is None or
-    q6_goldmsi_mt is None or
-    q7_goldmsi_mt is None
-):
-    st.warning("Παρακαλώ απαντήστε σε όλες τις ερωτήσεις της ενότητας 'Μουσική εκπαίδευση'.")
-
+valid_goldmsi_mt = validate_required_fields(
+    [
+        q1_goldmsi_mt,
+        q2_goldmsi_mt,
+        q3_goldmsi_mt,
+        q4_goldmsi_mt,
+        q5_goldmsi_mt,
+        q6_goldmsi_mt,
+        q7_goldmsi_mt,
+    ]
+)
 
 st.markdown("---")
 
@@ -199,8 +193,22 @@ q8_tipi = st.radio("Ανοργάνωτο, απρόσεκτο", tipi_options, ind
 q9_tipi = st.radio("Ήρεμο, συναισθηματικά σταθερό", tipi_options, index=None, key="q9_tipi", horizontal=True)
 q10_tipi = st.radio("Συμβατικό, μη δημιουργικό", tipi_options, index=None, key="q10_tipi", horizontal=True)
 
-st.markdown("---")
+valid_tipi = validate_required_fields(
+    [
+        q1_tipi,
+        q2_tipi,
+        q3_tipi,
+        q4_tipi,
+        q5_tipi,
+        q6_tipi,
+        q7_tipi,
+        q8_tipi,
+        q9_tipi,
+        q10_tipi,
+    ]
+)
 
+st.markdown("---")
 
 # HSP
 st.markdown("## Ευαισθησία στο Περιβάλλον")
@@ -223,6 +231,23 @@ q11_hsp = st.radio("Σας ενοχλούν έντονα ερεθίσματα, �
 q12_hsp = st.radio("Όταν πρέπει να ανταγωνιστείτε ή να σας παρατηρούν ενώ εκτελείτε μια εργασία, γίνεστε τόσο νευρικός/ή ή τρέμετε με αποτέλεσμα να αποδίδετε πολύ χειρότερα από ό,τι θα κάνατε διαφορετικά;", hsp_scale, index=None, key="q12_sensitivity", horizontal=True)
 
 st.markdown("**1 = Καθόλου  4 = Μέτρια  7 = Πάρα πολύ**")
+
+valid_hsp = validate_required_fields(
+    [
+        q1_hsp,
+        q2_hsp,
+        q3_hsp,
+        q4_hsp,
+        q5_hsp,
+        q6_hsp,
+        q7_hsp,
+        q8_hsp,
+        q9_hsp,
+        q10_hsp,
+        q11_hsp,
+        q12_hsp,
+    ]
+)
 
 st.markdown("---")
 
@@ -257,6 +282,32 @@ q28_iri = st.radio("28. Πριν κριτικάρω κάποιον προσπα�
 
 st.markdown("**A = ΔΕΝ ΜΕ ΧΑΡΑΚΤΗΡΙΖΕΙ ΚΑΘΟΛΟΥ  E = ΜΕ ΧΑΡΑΚΤΗΡΙΖΕΙ ΠΟΛΥ**")
 
+valid_iri = validate_required_fields(
+    [
+        q1_iri,
+        q2_iri,
+        q3_iri,
+        q4_iri,
+        q5_iri,
+        q7_iri,
+        q8_iri,
+        q9_iri,
+        q11_iri,
+        q12_iri,
+        q14_iri,
+        q15_iri,
+        q16_iri,
+        q18_iri,
+        q20_iri,
+        q21_iri,
+        q22_iri,
+        q23_iri,
+        q25_iri,
+        q26_iri,
+        q28_iri,
+    ]
+)
+
 st.markdown("---")
 
 # EMOTCONT
@@ -284,8 +335,27 @@ q15_emotcont = st.radio("15. Εάν τύχει να ακούσω την κραυ
 
 st.markdown("**1 = Ποτέ  5 = Πάντα**")
 
-st.markdown("---")
+valid_emotcont = validate_required_fields(
+    [
+        q1_emotcont,
+        q2_emotcont,
+        q3_emotcont,
+        q4_emotcont,
+        q5_emotcont,
+        q6_emotcont,
+        q7_emotcont,
+        q8_emotcont,
+        q9_emotcont,
+        q10_emotcont,
+        q11_emotcont,
+        q12_emotcont,
+        q13_emotcont,
+        q14_emotcont,
+        q15_emotcont,
+    ]
+)
 
+st.markdown("---")
 
 # ΣΥΝΑΙΣΘΗΜΑΤΙΚΗ ΚΑΤΑΣΤΑΣΗ
 st.markdown("## Πώς αισθάνεστε τώρα")
@@ -318,6 +388,8 @@ q3_arousal = st.slider(
 )
 st.caption("1 = Πολύ ήρεμος/η, 7 = Πολύ ενεργοποιημένος/η")
 
+valid_mood = validate_required_fields([q1_mood_open, q2_valence, q3_arousal])
+
 st.markdown("---")
 
 # BMIS
@@ -345,6 +417,11 @@ q15_bmis = st.radio("Απαυδισμένος/η", bmis_options, index=None, key
 q16_bmis = st.radio("Δραστήριος/α", bmis_options, index=None, key="q16_mood", horizontal=True)
 
 st.markdown("**1 = Σίγουρα δεν νιώθω  7 = Σίγουρα νιώθω**")
+
+valid_bmis = validate_required_fields([
+    q1_bmis, q2_bmis, q3_bmis, q4_bmis, q5_bmis, q6_bmis, q7_bmis, q8_bmis,
+    q9_bmis, q10_bmis, q11_bmis, q12_bmis, q13_bmis, q14_bmis, q15_bmis, q16_bmis
+])
 
 st.markdown("---")
 
