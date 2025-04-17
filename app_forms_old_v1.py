@@ -20,14 +20,12 @@ st.markdown("---")
 # ΕΝΑΣΧΟΛΗΣΗ ΜΕ ΤΗ ΜΟΥΣΙΚΗ
 st.markdown("## Ενασχόληση με τη Μουσική")
 
-# Main instrument input
 st.text_input(
     "Το μουσικό όργανο που παίζω καλύτερα (συμπεριλαμβανομένης της φωνής) είναι:",
     placeholder="π.χ. πιάνο, κιθάρα, φλάουτο, φωνή",
     key="instrument_goldmsi"
 )
 
-# Music listening preference
 genre_listen_options = ["Ροκ/ποπ", "Τζαζ", "Κλασική", "Άλλο", "Κανένα"]
 
 q1_music_style = st.radio(
@@ -36,13 +34,11 @@ q1_music_style = st.radio(
     index=None,
     key="q1_music_style"
 )
-
 if q1_music_style == "Άλλο":
     q1_music_style_other = st.text_input("Παρακαλώ διευκρινίστε:", key="q1_music_style_other")
 else:
     q1_music_style_other = ""
 
-# Musical training background
 genre_training_options = ["Ροκ/ποπ", "Τζαζ", "Κλασική", "Άλλο", "Κανένα"]
 
 q_music_training_style = st.radio(
@@ -51,31 +47,67 @@ q_music_training_style = st.radio(
     index=None,
     key="q_music_training_style"
 )
-
 if q_music_training_style == "Άλλο":
     q_music_training_style_other = st.text_input("Παρακαλώ διευκρινίστε:", key="q_music_training_style_other")
 else:
     q_music_training_style_other = ""
 
+q_learning = st.radio("Πώς αποκτήσατε τη μουσική σας εκπαίδευση/εμπειρία;", ["Επίσημη εκπαίδευση", "Αυτοδίδακτα", "Και τα δύο", "Δεν έχω μουσική εμπειρία"], index=None)
+
 st.markdown("---")
+
+# ΕΜΠΕΙΡΙΑ ΜΕ ΑΥΤΟΣΧΕΔΙΑΣΜΟ
+st.markdown("## Εμπειρία με τον αυτοσχεδιασμό")
+
+q1_improv = st.radio(
+    "Πόσο εξοικειωμένος/η αισθάνεστε με τον μουσικό αυτοσχεδιασμό;",
+    ["1 (Καθόλου)", "2", "3", "4", "5", "6", "7 (Πάρα πολύ)"],
+    index=None,
+    key="q1_improv",
+    horizontal=True
+)
+
+q2_improv = st.radio(
+    "Πόσα χρόνια ασκείστε στον μουσικό αυτοσχεδιασμό;",
+    ["0", "0.5", "1", "2", "3", "4-6", "7-10", "11 ή περισσότερα"],
+    index=None,
+    key="q2_improv", horizontal=True,
+)
+
+q3_improv = st.multiselect(
+    "Με ποιον τρόπο εξοικειωθήκατε με τον αυτοσχεδιασμό; (Μπορείτε να επιλέξετε περισσότερες από μία επιλογές)",
+    ["Επίσημη εκπαίδευση", "Αυτοδίδακτος/η", "Παίζοντας σε σύνολο/ομάδα", "Παίζοντας μόνος/η μου", "Άλλο"],
+    key="q3_improv"
+)
+if "Άλλο" in q3_improv:
+    q3_improv_other = st.text_input("Παρακαλώ διευκρινίστε:", key="q3_improv_other")
+else:
+    q3_improv_other = ""
+
+q4_improv = st.radio(
+    "Πόσες φορές έχετε αυτοσχεδιάσει ζωντανά (σε κοινό);",
+    ["0", "1", "2-5", "6-10", "11-20", "21 ή περισσότερες"],
+    index=None,
+    key="q4_improv", horizontal=True,
+)
 
 # GOLD-MSI
 # ΕΝΕΡΓΟΣ ΕΝΑΣΧΟΛΗΣΗ
-st.markdown("## Ενεργός ενασχόληση")
-st.markdown("**Παρακαλώ επιλέξτε αυτό που ταιριάζει στην περίπτωσή σας.**")
+st.markdown("## Ενεργός ενασχόληση με τη μουσική")
+st.markdown("**Παρακαλώ επιλέξτε αυτό που σας ταιριάζει περισσότερο.**")
 
-likert_options = ["Συμφωνώ απολύτως", "Συμφωνώ εντόνως", "Συμφωνώ", "Ούτε συμφωνώ ούτε διαφωνώ",
-    "Διαφωνώ", "Διαφωνώ εντόνως", "Διαφωνώ πλήρως"]
+likert_options = ["Συμφωνώ απόλυτα", "Συμφωνώ πολύ", "Συμφωνώ", "Ούτε συμφωνώ ούτε διαφωνώ",
+    "Διαφωνώ", "Διαφωνώ πολύ", "Διαφωνώ απόλυτα"]
 
-q1_goldmsi_ae = st.radio("Περνάω πολύ από τον ελεύθερο χρόνο μου σε δραστηριότητες που σχετίζονται με τη μουσική.", likert_options, index=None, key="q1_goldmsi_ae")
+q1_goldmsi_ae = st.radio("Περνάω πολύ από τον ελεύθερο χρόνο μου σε δραστηριότητες που σχετίζονται με τη μουσική.", likert_options, index=None, key="q1_goldmsi_ae", horizontal=True)
 q2_goldmsi_ae = st.radio("Μου αρέσει να γράφω για τη μουσική, για παράδειγμα σε blog και φόρουμ.", likert_options, index=None, key="q2_goldmsi_ae")
 q3_goldmsi_ae = st.radio("Με ενθουσιάζουν μουσικά είδη που δεν μου είναι οικεία και θέλω να ανακαλύψω περισσότερα γι’αυτά.", likert_options, index=None, key="q3_goldmsi_ae")
 q4_goldmsi_ae = st.radio("Συχνά διαβάζω ή ψάχνω στο διαδίκτυο για πράγματα που σχετίζονται με τη μουσική.", likert_options, index=None, key="q4_goldmsi_ae")
 q5_goldmsi_ae = st.radio("Δεν ξοδεύω μεγάλο μέρος του διαθέσιμου εισοδήματός μου για τη μουσική.", likert_options, index=None, key="q5_goldmsi_ae")
 q6_goldmsi_ae = st.radio("Η μουσική είναι σαν εθισμός για μένα – δεν θα μπορούσα να ζήσω χωρίς αυτή.", likert_options, index=None, key="q6_goldmsi_ae")
 q7_goldmsi_ae = st.radio("Παρακολουθώ την καινούργια μουσική που συναντώ (π.χ. νέους καλλιτέχνες ή ηχογραφήσεις).", likert_options, index=None, key="q7_goldmsi_ae")
-q8_goldmsi_ae = st.radio("Έχω παρακολουθήσει __ ζωντανές μουσικές εκδηλώσεις ως ακροατής τους τελευταίους δώδεκα μήνες.", ["0", "1", "2", "3", "4-6", "7-10", "11+"], index=None, key="q8_goldmsi_ae")
-q9_goldmsi_ae = st.radio("Ακούω μουσική με προσοχή __ την ημέρα.", ["0-15 λεπτά", "15-30 λεπτά", "30-60 λεπτά", "60-90 λεπτά", "2 ώρες", "2-3 ώρες", "4 ώρες ή περισσότερο"], index=None, key="q9_goldmsi_ae")
+q8_goldmsi_ae = st.radio("Έχω παρακολουθήσει __ ζωντανές μουσικές εκδηλώσεις ως ακροατής τους τελευταίους δώδεκα μήνες.", ["0", "1", "2", "3", "4-6", "7-10", "11 ή περισσότερες"], index=None, key="q8_goldmsi_ae", horizontal=True)
+q9_goldmsi_ae = st.radio("Ακούω με προσοχή μουσική __ την ημέρα.", ["0-15 λεπτά", "15-30 λεπτά", "30-60 λεπτά", "60-90 λεπτά", "2 ώρες", "2-3 ώρες", "4 ώρες ή περισσότερο"], index=None, key="q9_goldmsi_ae", horizontal=True)
 
 st.markdown("## Μουσική εκπαίδευση")
 
@@ -100,7 +132,7 @@ q6_goldmsi_e = st.radio("Η μουσική μπορεί να μου ανακαλ
 st.markdown("## Προσωπικότητα")
 st.markdown("**Βλέπω τον εαυτό μου ως:**")
 
-tipi_options = [    "Διαφωνώ απόλυτα", "Διαφωνώ μέτρια", "Διαφωνώ λίγο",
+tipi_options = ["Διαφωνώ απόλυτα", "Διαφωνώ μέτρια", "Διαφωνώ λίγο",
     "Δεν συμφωνώ ούτε διαφωνώ", "Συμφωνώ λίγο", "Συμφωνώ μέτρια", "Συμφωνώ απόλυτα"]
 
 q1_tipi = st.radio("Εξωστρεφή, ενθουσιώδη", tipi_options, index=None, key="q1_tipi")
@@ -116,11 +148,12 @@ q10_tipi = st.radio("Συμβατικό, μη δημιουργικό", tipi_opti
 
 st.markdown("---")
 
-#
+# Νοοτροπία για τη Δημιουργικότητα
 st.markdown("## Νοοτροπία για τη Δημιουργικότητα")
 st.markdown("**Διαλέξτε την απάντηση στην παρακάτω κλίμακα που δείχνει πόσο καλά κάθε επίθετο ή φράση περιγράφει την παρούσα διάθεσή σας.**")
+st.markdown("**1 = Σίγουρα όχι  5 = Σίγουρα ναι**")
 
-cms_options = ["1  Σίγουρα όχι", "2", "3", "4", "5  Σίγουρα ναι"]
+cms_options = ["1", "2", "3", "4", "5"]
 
 q1_cms = st.radio("Ο καθένας μπορεί να δημιουργήσει κάτι σπουδαίο κάποια στιγμή, αν του/της δοθούν οι κατάλληλες συνθήκες", cms_options, index=None, key="q1_mindset", horizontal=True)
 q2_cms = st.radio("Είτε είναι κανείς δημιουργικός είτε δεν είναι - ακόμα κι αν προσπαθήσει πολύ σκληρά δεν μπορεί να αλλάξει πολύ", cms_options, index=None, key="q2_mindset", horizontal=True)
@@ -132,6 +165,8 @@ q7_cms = st.radio("Η Ρώμη δεν χτίστηκε σε μια μέρα - κ
 q8_cms = st.radio("Μερικοί άνθρωποι είναι δημιουργικοί, άλλοι δεν είναι - και καμία εξάσκηση δεν μπορεί να το αλλάξει", cms_options, index=None, key="q8_mindset", horizontal=True)
 q9_cms = st.radio("Δεν έχει σημασία ποιο επίπεδο δημιουργικότητας επιδεικνύει κάποιος - μπορείς πάντα να το αυξήσεις", cms_options, index=None, key="q9_mindset", horizontal=True)
 q10_cms = st.radio("Το πραγματικά δημιουργικό ταλέντο είναι έμφυτο και σταθερό σε ολόκληρη τη ζωή του ατόμου", cms_options, index=None, key="q10_mindset", horizontal=True)
+
+st.markdown("**1 = Σίγουρα όχι  5 = Σίγουρα ναι**")
 
 st.markdown("---")
 
@@ -155,19 +190,16 @@ q10_hsp = st.radio("Παρατηρείτε και απολαμβάνετε λε�
 q11_hsp = st.radio("Σας ενοχλούν έντονα ερεθίσματα, όπως δυνατοί θόρυβοι ή χαοτικές σκηνές;", hsp_scale, index=None, key="q11_sensitivity", horizontal=True)
 q12_hsp = st.radio("Όταν πρέπει να ανταγωνιστείτε ή να σας παρατηρούν ενώ εκτελείτε μια εργασία, γίνεστε τόσο νευρικός/ή ή τρέμετε με αποτέλεσμα να αποδίδετε πολύ χειρότερα από ό,τι θα κάνατε διαφορετικά;", hsp_scale, index=None, key="q12_sensitivity", horizontal=True)
 
+st.markdown("**1 = Καθόλου  4 = Μέτρια  7 = Πάρα πολύ**")
+
 st.markdown("---")
 
 # IRI
 st.markdown("## Διαπροσωπική Ανταπόκριση")
-st.markdown("Για κάθε δήλωση, προσδιορίστε πόσο καλά σας περιγράφει:")
+st.markdown("**Για κάθε δήλωση, προσδιορίστε πόσο καλά σας χαρακτηρίζει:**")
+st.markdown("**A = ΔΕΝ ΜΕ ΧΑΡΑΚΤΗΡΙΖΕΙ ΚΑΘΟΛΟΥ  E = ΜΕ ΧΑΡΑΚΤΗΡΙΖΕΙ ΠΟΛΥ**")
 
-iri_options = [
-    "Α  ΔΕΝ ΜΕ ΠΕΡΙΓΡΑΦΕΙ ΚΑΘΟΛΟΥ",
-    "Β",
-    "Γ",
-    "Δ",
-    "Ε  ΜΕ ΠΕΡΙΓΡΑΦΕΙ ΠΟΛΥ ΚΑΛΑ"
-]
+iri_options = ["Α", "Β", "Γ", "Δ", "Ε"]
 
 q1_iri = st.radio("1. Συχνά ονειροπολώ και φαντάζομαι πράγματα που μπορεί να μου συμβούν", iri_options, index=None, key="q1_iri", horizontal=True)
 q2_iri = st.radio("2. Συχνά νιώθω τρυφερότητα και νοιάζομαι για ανθρώπους λιγότερο τυχερούς από μένα", iri_options, index=None, key="q2_iri", horizontal=True)
@@ -198,12 +230,14 @@ q26_iri = st.radio("26. Όταν διαβάζω μια ενδιαφέρουσα 
 q27_iri = st.radio("27. Όταν βλέπω κάποιον που χρειάζεται άμεσα βοήθεια σε μια κρίσιμη κατάσταση, αποδιοργανώνομαι", iri_options, index=None, key="q27_iri", horizontal=True)
 q28_iri = st.radio("28. Πριν κριτικάρω κάποιον προσπαθώ να φανταστώ πως θα αισθανόμουν εγώ στη θέση του", iri_options, index=None, key="q28_iri", horizontal=True)
 
+st.markdown("**A = ΔΕΝ ΜΕ ΧΑΡΑΚΤΗΡΙΖΕΙ ΚΑΘΟΛΟΥ  E = ΜΕ ΧΑΡΑΚΤΗΡΙΖΕΙ ΠΟΛΥ**")
+
 st.markdown("---")
 
 # EMOTCONT
 st.markdown("## Συναισθηματική Μετάδοση")
 st.markdown("Απάντησε σύμφωνα με τον δικό σου τρόπο να σκέφτεσαι, να αισθάνεσαι και να ενεργείς σε διάφορες καταστάσεις:")
-st.markdown("**1 = Ποτέ 5 = Πάντα")
+st.markdown("**1 = Ποτέ  5 = Πάντα**")
 
 emotcont_options = ["1", "2", "3", "4", "5"]
 
@@ -223,13 +257,16 @@ q13_emotcont = st.radio("13. Καταλαβαίνω ότι φορτίζομαι 
 q14_emotcont = st.radio("14. Κλαίω, όταν βλέπω λυπητερά έργα.", emotcont_options, index=None, key="q14_emotcont", horizontal=True)
 q15_emotcont = st.radio("15. Εάν τύχει να ακούσω την κραυγή ενός τρομαγμένου παιδιού, στην αίθουσα αναμονής του οδοντιατρείου, γίνομαι νευρικός/ή.", emotcont_options, index=None, key="q15_emotcont", horizontal=True)
 
+st.markdown("**1 = Ποτέ  5 = Πάντα**")
+
 st.markdown("---")
 
 # BMIS
 st.markdown("## Διάθεση")
 st.markdown("**Διαλέξτε την απάντηση στην παρακάτω κλίμακα που δείχνει πόσο καλά κάθε επίθετο ή φράση περιγράφει την παρούσα διάθεσή σας.**")
+st.markdown("**1 = Σίγουρα δεν νιώθω  7 = Σίγουρα νιώθω**")
 
-bmis_options = ["1  Σίγουρα δεν νιώθω", "2", "3", "4", "5", "6", "7  Σίγουρα νιώθω"
+bmis_options = ["1", "2", "3", "4", "5", "6", "7"
 ]
 
 q1_bmis = st.radio("Ζωηρός", bmis_options, index=None, key="q1_mood", horizontal=True)
@@ -248,5 +285,7 @@ q13_bmis = st.radio("Ήρεμος", bmis_options, index=None, key="q13_mood", ho
 q14_bmis = st.radio("Τρυφερός (loving)", bmis_options, index=None, key="q14_mood", horizontal=True)
 q15_bmis = st.radio("Fed up", bmis_options, index=None, key="q15_mood", horizontal=True)
 q16_bmis = st.radio("Δραστήριος", bmis_options, index=None, key="q16_mood", horizontal=True)
+
+st.markdown("**1 = Σίγουρα δεν νιώθω  7 = Σίγουρα νιώθω**")
 
 st.markdown("---")
