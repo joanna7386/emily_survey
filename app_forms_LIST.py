@@ -4,18 +4,10 @@ from datetime import datetime
 
 st.set_page_config(layout="wide")
 
-def validate_required_fields(field_values, section_title="αυτή την ενότητα"):
-    """
-    Checks if all fields in the list are filled in.
-    If any field is None or empty (for strings), shows a warning.
-
-    Parameters:
-    - field_values (list): List of variables to check.
-    - section_title (str): Optional title to show in the warning.
-    """
-    for val in field_values:
-        if val is None or (isinstance(val, str) and val.strip() == ""):
-            st.warning(f"Παρακαλώ απαντήστε σε όλες τις ερωτήσεις της παραπάνω ενότητας.")
+def validate_required_fields(fields):
+    for field in fields:
+        if field in [None, "", []]:
+            st.warning("Παρακαλώ συμπληρώστε όλα τα απαραίτητα πεδία πριν συνεχίσετε.")
             return False
     return True
 
@@ -28,7 +20,7 @@ age = st.number_input("Ηλικία", min_value=17, max_value=80, step=1, format
 gender = st.selectbox("Φύλο",["", "Γυναίκα", "Άντρας", "Μη-δυαδικό", "Προτιμώ να μην πω"])
 
 # Validation check
-valid_demo = validate_required_fields([age, gender], section_title="Δημογραφικά Στοιχεία")
+valid_demo = validate_required_fields([age, gender])
 
 st.markdown("---")
 
@@ -70,15 +62,16 @@ else:
 q_learning = st.radio("Πώς αποκτήσατε τη μουσική σας εκπαίδευση/εμπειρία;", ["Επίσημη εκπαίδευση", "Αυτοδίδακτα", "Και τα δύο", "Δεν έχω μουσική εμπειρία"], index=None)
 
 # Validation check
-if (
-    st.session_state.instrument_goldmsi.strip() == "" or
-    q1_music_style is None or
-    (q1_music_style == "Άλλο" and q1_music_style_other.strip() == "") or
-    q_music_training_style is None or
-    (q_music_training_style == "Άλλο" and q_music_training_style_other.strip() == "") or
-    q_learning is None
-):
-    st.warning("Παρακαλώ συμπληρώστε όλα τα παραπάνω πεδία πριν συνεχίσετε.")
+valid_music = validate_required_fields(
+    [
+        st.session_state.get("instrument_goldmsi"),
+        q1_music_style,
+        q1_music_style_other if q1_music_style == "Άλλο" else "ok",
+        q_music_training_style,
+        q_music_training_style_other if q_music_training_style == "Άλλο" else "ok",
+        q_learning,
+    ]
+)
 
 st.markdown("---")
 
