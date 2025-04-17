@@ -4,12 +4,23 @@ from datetime import datetime
 
 st.set_page_config(layout="wide")
 
+def validate_required_fields(fields):
+    for field in fields:
+        if field in [None, "", []]:
+            st.warning("Παρακαλώ συμπληρώστε όλα τα απαραίτητα πεδία πριν συνεχίσετε.")
+            return False
+    return True
+
+
 # ΔΗΜΟΓΡΑΦΙΚΑ
 st.title("Ερωτηματολόγιο")  # Survey title
 st.markdown("## Δημογραφικά Στοιχεία")
 
 age = st.number_input("Ηλικία", min_value=17, max_value=80, step=1, format="%d", value=None, placeholder="Πληκτρολογήστε την ηλικία σας")
 gender = st.selectbox("Φύλο",["", "Γυναίκα", "Άντρας", "Μη-δυαδικό", "Προτιμώ να μην πω"])
+
+# Validation check
+valid_demo = validate_required_fields([age, gender])
 
 st.markdown("---")
 
@@ -50,6 +61,18 @@ else:
 
 q_learning = st.radio("Πώς αποκτήσατε τη μουσική σας εκπαίδευση/εμπειρία;", ["Επίσημη εκπαίδευση", "Αυτοδίδακτα", "Και τα δύο", "Δεν έχω μουσική εμπειρία"], index=None)
 
+# Validation check
+valid_music = validate_required_fields(
+    [
+        st.session_state.get("instrument_goldmsi"),
+        q1_music_style,
+        q1_music_style_other if q1_music_style == "Άλλο" else "ok",
+        q_music_training_style,
+        q_music_training_style_other if q_music_training_style == "Άλλο" else "ok",
+        q_learning,
+    ]
+)
+
 st.markdown("---")
 
 # ΕΜΠΕΙΡΙΑ ΜΕ ΑΥΤΟΣΧΕΔΙΑΣΜΟ
@@ -87,6 +110,11 @@ q4_improv = st.radio(
     key="q4_improv", horizontal=True,
 )
 
+# Validation check
+valid_improv = validate_required_fields([q1_improv,q2_improv,q3_improv,q3_improv_other if "Άλλο" in q3_improv else "ok",q4_improv,])
+
+st.markdown("---")
+
 # GOLD-MSI
 st.markdown("## Μουσική εκπαίδευση")
 st.markdown("**Παρακαλώ επιλέξτε αυτό που σας ταιριάζει περισσότερο.**")
@@ -101,6 +129,21 @@ q4_goldmsi_mt = st.radio("Στο αποκορύφωμα του ενδιαφέρ�
 q5_goldmsi_mt = st.radio("Έχω λάβει επίσημα μαθήματα θεωρίας της μουσικής __ χρόνια.", ["0", "0,5", "1", "2", "3", "4-6", "7 ή περισσότερα"], index=None, horizontal=True, key="q5_goldmsi_mt")
 q6_goldmsi_mt = st.radio("Έχω λάβει __ χρόνια επίσημη εκπαίδευση σε ένα μουσικό όργανο (συμπεριλαμβανομένης της φωνής) κατά τη διάρκεια της ζωής μου.", ["0", "0,5", "1", "2", "3-5", "6-9", "10 ή περισσότερα"], index=None, horizontal=True, key="q6_goldmsi_mt")
 q7_goldmsi_mt = st.radio("Μπορώ να παίξω ___ μουσικά όργανα.", ["0", "1", "2", "3", "4", "5", "6 ή περισσότερα"], index=None, horizontal=True, key="q7_goldmsi_mt")
+
+# Validation check
+valid_goldmsi_mt = validate_required_fields(
+    [
+        q1_goldmsi_mt,
+        q2_goldmsi_mt,
+        q3_goldmsi_mt,
+        q4_goldmsi_mt,
+        q5_goldmsi_mt,
+        q6_goldmsi_mt,
+        q7_goldmsi_mt,
+    ]
+)
+
+st.markdown("---")
 
 # TIPI
 st.markdown("## Προσωπικότητα")
@@ -119,6 +162,21 @@ q7_tipi = st.radio("Συμπαθητικό, ζεστό", tipi_options, index=Non
 q8_tipi = st.radio("Ανοργάνωτο, απρόσεκτο", tipi_options, index=None, key="q8_tipi", horizontal=True)
 q9_tipi = st.radio("Ήρεμο, συναισθηματικά σταθερό", tipi_options, index=None, key="q9_tipi", horizontal=True)
 q10_tipi = st.radio("Συμβατικό, μη δημιουργικό", tipi_options, index=None, key="q10_tipi", horizontal=True)
+
+valid_tipi = validate_required_fields(
+    [
+        q1_tipi,
+        q2_tipi,
+        q3_tipi,
+        q4_tipi,
+        q5_tipi,
+        q6_tipi,
+        q7_tipi,
+        q8_tipi,
+        q9_tipi,
+        q10_tipi,
+    ]
+)
 
 st.markdown("---")
 
@@ -142,8 +200,12 @@ q10_cms = st.radio("Το πραγματικά δημιουργικό ταλέν�
 
 st.markdown("**1 = Σίγουρα όχι  5 = Σίγουρα ναι**")
 
-st.markdown("---")
+valid_cms = validate_required_fields([
+    q1_cms, q2_cms, q3_cms, q4_cms, q5_cms,
+    q6_cms, q7_cms, q8_cms, q9_cms, q10_cms
+])
 
+st.markdown("---")
 
 # IRI
 st.markdown("## Διαπροσωπική Ανταπόκριση")
@@ -159,6 +221,10 @@ q12_iri = st.radio("Είναι σπάνιες οι φορές που με απο
 q16_iri = st.radio("Μετά από ένα θεατρικό έργο ή μια ταινία αισθάνομαι σαν να ήμουν ένας από τους πρωταγωνιστές", iri_options, index=None, key="q16_iri", horizontal=True)
 q23_iri = st.radio("Όταν βλέπω ένα καλό έργο ταυτίζομαι εύκολα με τον πρωταγωνιστή", iri_options, index=None, key="q23_iri", horizontal=True)
 q26_iri = st.radio("Όταν διαβάζω μια ενδιαφέρουσα ιστορία προσπαθώ να φανταστώ πως θα αισθανόμουν αν τα γεγονότα της ιστορίας συνέβαιναν σε μένα", iri_options, index=None, key="q26_iri", horizontal=True)
+
+valid_iri = validate_required_fields([
+    q1_iri, q5_iri, q7_iri, q12_iri, q16_iri, q23_iri, q26_iri
+])
 
 st.markdown("---")
 
@@ -187,8 +253,13 @@ q15_emotcont = st.radio("15. Εάν τύχει να ακούσω την κραυ
 
 st.markdown("**1 = Ποτέ  5 = Πάντα**")
 
-st.markdown("---")
+valid_emotcont = validate_required_fields([
+    q1_emotcont, q2_emotcont, q3_emotcont, q4_emotcont, q5_emotcont,
+    q6_emotcont, q7_emotcont, q8_emotcont, q9_emotcont, q10_emotcont,
+    q11_emotcont, q12_emotcont, q13_emotcont, q14_emotcont, q15_emotcont
+])
 
+st.markdown("---")
 
 # ΣΥΝΑΙΣΘΗΜΑΤΙΚΗ ΚΑΤΑΣΤΑΣΗ
 st.markdown("## Πώς αισθάνεστε τώρα")
@@ -221,6 +292,8 @@ q3_arousal = st.slider(
 )
 st.caption("1 = Πολύ ήρεμος/η, 7 = Πολύ ενεργοποιημένος/η")
 
+valid_mood = validate_required_fields([q1_mood_open, q2_valence, q3_arousal])
+
 st.markdown("---")
 
 # BMIS
@@ -249,4 +322,21 @@ q16_bmis = st.radio("Δραστήριος/α", bmis_options, index=None, key="q1
 
 st.markdown("**1 = Σίγουρα δεν νιώθω  7 = Σίγουρα νιώθω**")
 
+valid_bmis = validate_required_fields([
+    q1_bmis, q2_bmis, q3_bmis, q4_bmis, q5_bmis, q6_bmis, q7_bmis, q8_bmis,
+    q9_bmis, q10_bmis, q11_bmis, q12_bmis, q13_bmis, q14_bmis, q15_bmis, q16_bmis
+])
+
 st.markdown("---")
+
+if st.button("Υποβολή απαντήσεων"):
+    responses = {key: value for key, value in st.session_state.items()}
+    
+    # Add a timestamp
+    responses["timestamp"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    # Save to CSV (append mode)
+    df = pd.DataFrame([responses])
+    df.to_csv("survey_responses.csv", index=False, mode="a", header=not pd.io.common.file_exists("survey_responses.csv"))
+
+    st.success("Οι απαντήσεις σας καταχωρήθηκαν. Ευχαριστούμε!")
