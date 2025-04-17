@@ -281,4 +281,14 @@ q16_bmis = st.radio("Δραστήριος/α", bmis_options, index=None, key="q1
 
 st.markdown("**1 = Σίγουρα δεν νιώθω  7 = Σίγουρα νιώθω**")
 
-st.markdown("---")
+if st.button("Υποβολή απαντήσεων"):
+    responses = {key: value for key, value in st.session_state.items()}
+    
+    # Add a timestamp
+    responses["timestamp"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    # Save to CSV (append mode)
+    df = pd.DataFrame([responses])
+    df.to_csv("survey_responses.csv", index=False, mode="a", header=not pd.io.common.file_exists("survey_responses.csv"))
+
+    st.success("Οι απαντήσεις σας καταχωρήθηκαν. Ευχαριστούμε!")
