@@ -4,18 +4,32 @@ from datetime import datetime
 
 st.set_page_config(layout="wide")
 
-st.title("Ερωτηματολόγιο")  # Survey title
-st.markdown("## Δημογραφικά Στοιχεία")
+# Initialize page tracker
+if "page" not in st.session_state:
+    st.session_state.page = 0
+
+def next_page():
+    st.session_state.page += 1
+
+def prev_page():
+    st.session_state.page -= 1
+
+# NAVIGATION BUTTONS
+col1, col2 = st.columns([1, 5])
+if st.session_state.page > 1:
+    with col1:
+        st.button("Προηγούμενο", on_click=prev_page)
+with col2:
+    st.button("Επόμενο", on_click=next_page)
+
 
 # ΔΗΜΟΓΡΑΦΙΚΑ
-age = st.number_input("Ηλικία", min_value=17, max_value=80, step=1, format="%d", value=None, placeholder="Πληκτρολογήστε την ηλικία σας")
+if st.session_state.page == 1:
+    st.title("Ερωτηματολόγιο")  # Survey title
+    st.markdown("## Δημογραφικά Στοιχεία")
+    st.number_input("Ηλικία", min_value=17, max_value=80, step=1, format="%d", value=None, placeholder="Πληκτρολογήστε την ηλικία σας")
+    st.selectbox("Φύλο",["", "Γυναίκα", "Άντρας", "Μη-δυαδικό", "Προτιμώ να μην πω"])
 
-gender = st.selectbox(
-    "Φύλο",
-    ["", "Γυναίκα", "Άντρας", "Μη-δυαδικό", "Προτιμώ να μην πω"]
-)
-
-st.markdown("---")
 
 # ΕΝΑΣΧΟΛΗΣΗ ΜΕ ΤΗ ΜΟΥΣΙΚΗ
 st.markdown("## Ενασχόληση με τη Μουσική")
