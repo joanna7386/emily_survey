@@ -352,7 +352,20 @@ if st.button("Υποβολή απαντήσεων"):
     file_exists = filepath.exists()
 
     df = pd.DataFrame([responses])
+
+    st.write("Saving to:", filepath)
+    st.write("Responses:", responses)
+
     df.to_csv(filepath, index=False, mode="a", header=not file_exists)
 
     st.success("Οι απαντήσεις σας καταχωρήθηκαν. Ευχαριστούμε!")
+
+    with open(filepath, "rb") as f:
+        st.download_button(
+            label="📥 Κατεβάστε τις απαντήσεις σας",
+            data=f,
+            file_name=filename,
+            mime="text/csv"
+        )
+
 
