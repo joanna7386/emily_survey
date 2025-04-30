@@ -10,7 +10,7 @@ def validate_required_fields(fields):
     for field in fields:
         if field in [None, "", []]:
             st.warning("Παρακαλώ συμπληρώστε όλα τα απαραίτητα πεδία πριν συνεχίσετε.")
-            st.stop()
+            #st.stop()
             return False
     return True
 
