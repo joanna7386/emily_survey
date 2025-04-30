@@ -353,19 +353,21 @@ if st.button("Υποβολή απαντήσεων"):
 
     df = pd.DataFrame([responses])
 
-    st.write("Saving to:", filepath.resolve())
-    st.write("Responses:", responses)
-
+    # Save locally
     df.to_csv(filepath, index=False, mode="a", header=not file_exists)
 
     st.success("Οι απαντήσεις σας καταχωρήθηκαν. Ευχαριστούμε!")
 
-    with open(filepath, "rb") as f:
-        st.download_button(
-            label="📥 Κατεβάστε τις απαντήσεις σας",
-            data=f,
-            file_name=filename,
-            mime="text/csv"
-        )
+    # Generate downloadable CSV in memory
+    csv_buffer = io.StringIO()
+    df.to_csv(csv_buffer, index=False)
+    csv_data = csv_buffer.getvalue()
 
+    download_filename = f"{participant_code}_survey_{datetime.now().strftime('%Y%m%d_%H%M')}.csv"
 
+    st.download_button(
+        label="📥 Κατεβάστε τις απαντήσεις σας",
+        data=csv_data,
+        file_name=download_filename,
+        mime="text/csv"
+    )
