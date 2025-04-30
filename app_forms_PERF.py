@@ -353,7 +353,7 @@ if st.button("Υποβολή απαντήσεων"):
 
     df = pd.DataFrame([responses])
 
-    st.write("Saving to:", filepath)
+    st.write("Saving to:", filepath.resolve())
     st.write("Responses:", responses)
 
     df.to_csv(filepath, index=False, mode="a", header=not file_exists)
