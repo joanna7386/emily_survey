@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
+import os
+import io
 from datetime import datetime
+from pathlib import Path
 
 st.set_page_config(layout="wide")
 
@@ -8,9 +11,12 @@ def validate_required_fields(fields):
     for field in fields:
         if field in [None, "", []]:
             st.warning("Παρακαλώ συμπληρώστε όλα τα απαραίτητα πεδία πριν συνεχίσετε.")
+            st.stop()
             return False
     return True
 
+# Ask for participant code
+participant_code = st.text_input("Κωδικός Συμμετέχοντα", key="participant_code")
 
 # ΔΗΜΟΓΡΑΦΙΚΑ
 st.title("Ερωτηματολόγιο")  # Survey title
@@ -427,12 +433,33 @@ st.markdown("---")
 
 if st.button("Υποβολή απαντήσεων"):
     responses = {key: value for key, value in st.session_state.items()}
-    
-    # Add a timestamp
     responses["timestamp"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-    # Save to CSV (append mode)
+    # Set up dynamic filename
+    directory = Path("data")
+    filename = f"{participant_code}_survey_responses.csv"
+    filepath = directory / filename
+
+    directory.mkdir(parents=True, exist_ok=True)
+    file_exists = filepath.exists()
+
     df = pd.DataFrame([responses])
-    df.to_csv("survey_responses.csv", index=False, mode="a", header=not pd.io.common.file_exists("survey_responses.csv"))
+
+    # Save locally
+    df.to_csv(filepath, index=False, mode="a", header=not file_exists)
 
     st.success("Οι απαντήσεις σας καταχωρήθηκαν. Ευχαριστούμε!")
+
+    # Generate downloadable CSV in memory
+    csv_buffer = io.StringIO()
+    df.to_csv(csv_buffer, index=False)
+    csv_data = csv_buffer.getvalue()
+
+    download_filename = f"{participant_code}_survey_{datetime.now().strftime('%Y%m%d_%H%M')}.csv"
+
+    st.download_button(
+        label="📥 Κατεβάστε τις απαντήσεις σας",
+        data=csv_data,
+        file_name=download_filename,
+        mime="text/csv"
+    )
