@@ -18,6 +18,11 @@ def validate_required_fields(fields):
 # Ask for participant code
 participant_code = st.text_input("Κωδικός Συμμετέχοντα", key="participant_code")
 
+# Prevent continuing if it's empty
+if not participant_code:
+    st.warning("Παρακαλώ εισάγετε τον κωδικό συμμετέχοντα για να ξεκινήσετε.")
+    st.stop()
+    
 # ΔΗΜΟΓΡΑΦΙΚΑ
 st.title("Ερωτηματολόγιο")  # Survey title
 st.markdown("## Δημογραφικά Στοιχεία")
