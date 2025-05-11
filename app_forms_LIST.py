@@ -39,8 +39,8 @@ st.markdown("---")
 st.markdown("## Ενασχόληση με τη Μουσική")
 
 st.text_input(
-    "Το μουσικό όργανο που παίζω καλύτερα (συμπεριλαμβανομένης της φωνής) είναι:",
-    placeholder="π.χ. πιάνο, κιθάρα, φλάουτο, φωνή",
+    "Το μουσικό όργανο που παίζετε καλύτερα (συμπεριλαμβανομένης της φωνής) είναι:",
+    placeholder="π.χ. πιάνο, κιθάρα, φλάουτο, φωνή, δεν παίζω κάποιο όργανο",
     key="instrument_goldmsi"
 )
 
@@ -188,7 +188,7 @@ st.markdown("---")
 
 # TIPI
 st.markdown("## Προσωπικότητα")
-st.markdown("**Βλέπω τον εαυτό μου ως:**")
+st.markdown("**Θεωρώ τον εαυτό μου:**")
 st.markdown("**1 = Διαφωνώ απόλυτα  2 = Διαφωνώ μέτρια  3 = Διαφωνώ λίγο  4 = Δεν συμφωνώ ούτε διαφωνώ  5 = Συμφωνώ λίγο  6 = Συμφωνώ μέτρια  7 = Συμφωνώ απόλυτα**")
 
 tipi_options = ["1", "2", "3", "4", "5", "6", "7"]
@@ -416,7 +416,7 @@ q3_bmis = st.radio("Λυπημένος/η", bmis_options, index=None, key="q3_mo
 q4_bmis = st.radio("Κουρασμένος/η", bmis_options, index=None, key="q4_mood", horizontal=True)
 q5_bmis = st.radio("Στοργικός/ή", bmis_options, index=None, key="q5_mood", horizontal=True)
 q6_bmis = st.radio("Ικανοποιημένος/η", bmis_options, index=None, key="q6_mood", horizontal=True)
-q7_bmis = st.radio("Κατηφής", bmis_options, index=None, key="q7_mood", horizontal=True)
+q7_bmis = st.radio("Κατσούφης/α", bmis_options, index=None, key="q7_mood", horizontal=True)
 q8_bmis = st.radio("Νευρικός/ή", bmis_options, index=None, key="q8_mood", horizontal=True)
 q9_bmis = st.radio("Νυσταγμένος/η", bmis_options, index=None, key="q9_mood", horizontal=True)
 q10_bmis = st.radio("Γκρινιάρης/α", bmis_options, index=None, key="q10_mood", horizontal=True)
@@ -424,7 +424,7 @@ q11_bmis = st.radio("Ζωηρός", bmis_options, index=None, key="q11_mood", ho
 q12_bmis = st.radio("Αγχωμένος/η", bmis_options, index=None, key="q12_mood", horizontal=True)
 q13_bmis = st.radio("Ήρεμος/η", bmis_options, index=None, key="q13_mood", horizontal=True)
 q14_bmis = st.radio("Τρυφερός/ή", bmis_options, index=None, key="q14_mood", horizontal=True)
-q15_bmis = st.radio("Απαυδισμένος/η", bmis_options, index=None, key="q15_mood", horizontal=True)
+q15_bmis = st.radio("Απηυδισμένος/η", bmis_options, index=None, key="q15_mood", horizontal=True)
 q16_bmis = st.radio("Δραστήριος/α", bmis_options, index=None, key="q16_mood", horizontal=True)
 
 st.markdown("**1 = Σίγουρα δεν νιώθω  7 = Σίγουρα νιώθω**")
