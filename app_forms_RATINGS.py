@@ -230,6 +230,158 @@ valid_cms = validate_required_fields([
 
 st.markdown("---")
 
+# IRI
+st.markdown("## Διαπροσωπική Ανταπόκριση")
+st.markdown("**Για κάθε δήλωση, προσδιορίστε πόσο καλά σας χαρακτηρίζει:**")
+st.markdown("**A = ΔΕΝ ΜΕ ΧΑΡΑΚΤΗΡΙΖΕΙ ΚΑΘΟΛΟΥ  E = ΜΕ ΧΑΡΑΚΤΗΡΙΖΕΙ ΠΟΛΥ**")
+
+iri_options = ["Α", "Β", "Γ", "Δ", "Ε"]
+
+q1_iri = st.radio("Συχνά ονειροπολώ και φαντάζομαι πράγματα που μπορεί να μου συμβούν", iri_options, index=None, key="q1_iri", horizontal=True)
+q5_iri = st.radio("Εντρυφώ πραγματικά στα συναισθήματα των προσώπων ενός μυθιστορήματος", iri_options, index=None, key="q5_iri", horizontal=True)
+q7_iri = st.radio("Συνήθως προσπαθώ να είμαι αντικειμενικός/η όταν παρακολουθώ ένα κινηματογραφικό ή ένα θεατρικό έργο και δεν παρασύρομαι από αυτό", iri_options, index=None, key="q7_iri", horizontal=True)
+q12_iri = st.radio("Είναι σπάνιες οι φορές που με απορροφά ένα καλό βιβλίο ή έργο", iri_options, index=None, key="q12_iri", horizontal=True)
+q16_iri = st.radio("Μετά από ένα θεατρικό έργο ή μια ταινία αισθάνομαι σαν να ήμουν ένας από τους πρωταγωνιστές", iri_options, index=None, key="q16_iri", horizontal=True)
+q23_iri = st.radio("Όταν βλέπω ένα καλό έργο ταυτίζομαι εύκολα με τον πρωταγωνιστή", iri_options, index=None, key="q23_iri", horizontal=True)
+q26_iri = st.radio("Όταν διαβάζω μια ενδιαφέρουσα ιστορία προσπαθώ να φανταστώ πως θα αισθανόμουν αν τα γεγονότα της ιστορίας συνέβαιναν σε μένα", iri_options, index=None, key="q26_iri", horizontal=True)
+
+valid_iri = validate_required_fields([
+    q1_iri, q5_iri, q7_iri, q12_iri, q16_iri, q23_iri, q26_iri
+])
+
+st.markdown("---")
+
+# EMOTCONT
+st.markdown("## Συναισθηματική Μετάδοση")
+st.markdown("**Απάντησε σύμφωνα με τον δικό σου τρόπο να σκέφτεσαι, να αισθάνεσαι και να ενεργείς σε διάφορες καταστάσεις:**")
+st.markdown("**1 = Ποτέ  5 = Πάντα**")
+
+emotcont_options = ["1", "2", "3", "4", "5"]
+
+q1_emotcont = st.radio("1. Εάν ο συνομιλητής μου αρχίζει να κλαίει, τότε μου έρχονται δάκρυα στα μάτια.", emotcont_options, index=None, key="q1_emotcont", horizontal=True)
+q2_emotcont = st.radio("2. Το να είμαι με κάποιον που είναι χαρούμενος, με κάνει να αισθάνομαι καλύτερα όταν είμαι στεναχωρημένος.", emotcont_options, index=None, key="q2_emotcont", horizontal=True)
+q3_emotcont = st.radio("3. Όταν κάποιος μου χαμογελά εγκάρδια, ανταποδίδω το χαμόγελό του και αισθάνομαι όμορφα μέσα μου.", emotcont_options, index=None, key="q3_emotcont", horizontal=True)
+q4_emotcont = st.radio("4. Γεμίζω με συναισθήματα λύπης όταν κάποιος μου διηγείται τον θάνατο κάποιου αγαπημένου του προσώπου.", emotcont_options, index=None, key="q4_emotcont", horizontal=True)
+q5_emotcont = st.radio("5. Σφίγγω τα δόντια μου και τους ώμους μου, όταν βλέπω θυμωμένα πρόσωπα στις ειδήσεις.", emotcont_options, index=None, key="q5_emotcont", horizontal=True)
+q6_emotcont = st.radio("6. Όταν κοιτάζω μέσα στα μάτια τους αγαπημένους μου, καταλαμβάνομαι από ρομαντικές σκέψεις.", emotcont_options, index=None, key="q6_emotcont", horizontal=True)
+q7_emotcont = st.radio("7. Εκνευρίζομαι όταν βρίσκομαι μεταξύ θυμωμένων ανθρώπων.", emotcont_options, index=None, key="q7_emotcont", horizontal=True)
+q8_emotcont = st.radio("8. Όταν βλέπω τα φοβισμένα πρόσωπα των θυμάτων στις ειδήσεις, προσπαθώ να φανταστώ το πώς αισθάνονται.", emotcont_options, index=None, key="q8_emotcont", horizontal=True)
+q9_emotcont = st.radio("9. «Λιώνω», όταν αυτός/ή που αγαπώ με αγκαλιάζει.", emotcont_options, index=None, key="q9_emotcont", horizontal=True)
+q10_emotcont = st.radio("10. Φορτίζομαι όταν τυχαίνει να ακούσω έναν καβγά.", emotcont_options, index=None, key="q10_emotcont", horizontal=True)
+q11_emotcont = st.radio("11. Όταν περιτριγυρίζομαι από χαρούμενους ανθρώπους, γεμίζω με χαρούμενες σκέψεις.", emotcont_options, index=None, key="q11_emotcont", horizontal=True)
+q12_emotcont = st.radio("12. Το αισθάνομαι σε όλο το σώμα, όταν ο/η αγαπημένος/η μου με αγγίζει.", emotcont_options, index=None, key="q12_emotcont", horizontal=True)
+q13_emotcont = st.radio("13. Καταλαβαίνω ότι φορτίζομαι όταν βρίσκομαι μεταξύ ανήσυχων ανθρώπων.", emotcont_options, index=None, key="q13_emotcont", horizontal=True)
+q14_emotcont = st.radio("14. Κλαίω, όταν βλέπω λυπητερά έργα.", emotcont_options, index=None, key="q14_emotcont", horizontal=True)
+q15_emotcont = st.radio("15. Εάν τύχει να ακούσω την κραυγή ενός τρομαγμένου παιδιού, στην αίθουσα αναμονής του οδοντιατρείου, γίνομαι νευρικός/ή.", emotcont_options, index=None, key="q15_emotcont", horizontal=True)
+
+st.markdown("**1 = Ποτέ  5 = Πάντα**")
+
+valid_emotcont = validate_required_fields([
+    q1_emotcont, q2_emotcont, q3_emotcont, q4_emotcont, q5_emotcont,
+    q6_emotcont, q7_emotcont, q8_emotcont, q9_emotcont, q10_emotcont,
+    q11_emotcont, q12_emotcont, q13_emotcont, q14_emotcont, q15_emotcont
+])
+
+st.markdown("---")
+
+# MSTAT-II (Tolerance for Ambiguity)
+st.markdown("## Ανοχή στην ασάφεια")
+st.markdown("**Παρακαλώ δηλώστε τον βαθμό στον οποίο συμφωνείτε ή διαφωνείτε με τις παρακάτω προτάσεις:**")
+st.markdown("**1 = Διαφωνώ απόλυτα  2 = Διαφωνώ λίγο  3 = Ούτε συμφωνώ ούτε διαφωνώ  4 = Συμφωνώ λίγο  5 = Συμφωνώ απόλυτα**")
+
+mstat_options = ["1", "2", "3", "4", "5"]
+
+q1_mstat = st.radio("Δυσκολεύομαι να ανεχτώ τις ασαφείς καταστάσεις.", mstat_options, index=None, key="q1_mstat", horizontal=True)
+q2_mstat = st.radio("Προτιμώ να αποφεύγω την επίλυση προβλημάτων που πρέπει να εξεταστούν από πολλές διαφορετικές οπτικές γωνίες.", mstat_options, index=None, key="q2_mstat", horizontal=True)
+q3_mstat = st.radio("Προσπαθώ να αποφεύγω τις ασαφείς καταστάσεις.", mstat_options, index=None, key="q3_mstat", horizontal=True)
+q4_mstat = st.radio("Προτιμώ τις οικείες καταστάσεις σε σχέση με τις πρωτόγνωρες.", mstat_options, index=None, key="q4_mstat", horizontal=True)
+q5_mstat = st.radio("Τα προβλήματα που δεν μπορούν να εξεταστούν από μία μόνο οπτική γωνία είναι λίγο απειλητικά.", mstat_options, index=None, key="q5_mstat", horizontal=True)
+q6_mstat = st.radio("Αποφεύγω καταστάσεις που είναι υπερβολικά περίπλοκες για να τις κατανοήσω εύκολα.", mstat_options, index=None, key="q6_mstat", horizontal=True)
+q7_mstat = st.radio("Είμαι ανεκτικός/ή στις ασαφείς καταστάσεις.", mstat_options, index=None, key="q7_mstat", horizontal=True)
+q8_mstat = st.radio("Μου αρέσει να αντιμετωπίζω προβλήματα που είναι τόσο περίπλοκα ώστε να είναι ασαφή.", mstat_options, index=None, key="q8_mstat", horizontal=True)
+q9_mstat = st.radio("Προσπαθώ να αποφεύγω προβλήματα που δεν φαίνεται να έχουν μία και μοναδική «καλύτερη» λύση.", mstat_options, index=None, key="q9_mstat", horizontal=True)
+q10_mstat = st.radio("Γενικά προτιμώ το καινούργιο έναντι του οικείου.", mstat_options, index=None, key="q10_mstat", horizontal=True)
+q11_mstat = st.radio("Δεν μου αρέσουν οι ασαφείς καταστάσεις.", mstat_options, index=None, key="q11_mstat", horizontal=True)
+q12_mstat = st.radio("Δυσκολεύομαι να αποφασίσω όταν το αποτέλεσμα είναι αβέβαιο.", mstat_options, index=None, key="q12_mstat", horizontal=True)
+q13_mstat = st.radio("Προτιμώ καταστάσεις όπου υπάρχει κάποιος βαθμός ασάφειας.", mstat_options, index=None, key="q13_mstat", horizontal=True)
+
+valid_mstat = validate_required_fields(
+    [
+        q1_mstat, q2_mstat, q3_mstat, q4_mstat, q5_mstat, q6_mstat,
+        q7_mstat, q8_mstat, q9_mstat, q10_mstat, q11_mstat, q12_mstat, q13_mstat
+    ]
+)
+
+st.markdown("---")
+
+# ΣΥΝΑΙΣΘΗΜΑΤΙΚΗ ΚΑΤΑΣΤΑΣΗ
+st.markdown("## Πώς αισθάνεστε τώρα")
+
+# Free text response — no placeholder to avoid priming
+q1_mood_open = st.text_area(
+    "Πώς αισθάνεστε σήμερα; Τι διάθεση έχετε;",
+    key="q1_mood_open"
+)
+
+# Valence (without label)
+q2_valence = st.slider(
+    "Πόσο θετικά ή αρνητικά αισθάνεστε αυτή τη στιγμή;",
+    min_value=1,
+    max_value=7,
+    value=4,
+    format="%d",
+    key="q2_valence"
+)
+st.caption("1 = Πολύ αρνητικά, 7 = Πολύ θετικά")
+
+# Arousal (without label)
+q3_arousal = st.slider(
+    "Πόσο ενεργοποιημένος/η ή ήρεμος/η αισθάνεστε αυτή τη στιγμή;",
+    min_value=1,
+    max_value=7,
+    value=4,
+    format="%d",
+    key="q3_arousal"
+)
+st.caption("1 = Πολύ ήρεμος/η, 7 = Πολύ ενεργοποιημένος/η")
+
+valid_mood = validate_required_fields([q1_mood_open, q2_valence, q3_arousal])
+
+st.markdown("---")
+
+# BMIS
+st.markdown("## Διάθεση")
+st.markdown("**Διαλέξτε την απάντηση στην παρακάτω κλίμακα που δείχνει πόσο καλά κάθε επίθετο ή φράση περιγράφει την παρούσα διάθεσή σας.**")
+st.markdown("**1 = Σίγουρα δεν νιώθω  7 = Σίγουρα νιώθω**")
+
+bmis_options = ["1", "2", "3", "4", "5", "6", "7"]
+
+q1_bmis = st.radio("Ζωντανός/ή", bmis_options, index=None, key="q1_mood", horizontal=True)
+q2_bmis = st.radio("Χαρούμενος/η", bmis_options, index=None, key="q2_mood", horizontal=True)
+q3_bmis = st.radio("Λυπημένος/η", bmis_options, index=None, key="q3_mood", horizontal=True)
+q4_bmis = st.radio("Κουρασμένος/η", bmis_options, index=None, key="q4_mood", horizontal=True)
+q5_bmis = st.radio("Στοργικός/ή", bmis_options, index=None, key="q5_mood", horizontal=True)
+q6_bmis = st.radio("Ικανοποιημένος/η", bmis_options, index=None, key="q6_mood", horizontal=True)
+q7_bmis = st.radio("Κατσούφης/α", bmis_options, index=None, key="q7_mood", horizontal=True)
+q8_bmis = st.radio("Νευρικός/ή", bmis_options, index=None, key="q8_mood", horizontal=True)
+q9_bmis = st.radio("Νυσταγμένος/η", bmis_options, index=None, key="q9_mood", horizontal=True)
+q10_bmis = st.radio("Γκρινιάρης/α", bmis_options, index=None, key="q10_mood", horizontal=True)
+q11_bmis = st.radio("Ζωηρός", bmis_options, index=None, key="q11_mood", horizontal=True)
+q12_bmis = st.radio("Αγχωμένος/η", bmis_options, index=None, key="q12_mood", horizontal=True)
+q13_bmis = st.radio("Ήρεμος/η", bmis_options, index=None, key="q13_mood", horizontal=True)
+q14_bmis = st.radio("Τρυφερός/ή", bmis_options, index=None, key="q14_mood", horizontal=True)
+q15_bmis = st.radio("Απηυδισμένος/η", bmis_options, index=None, key="q15_mood", horizontal=True)
+q16_bmis = st.radio("Δραστήριος/α", bmis_options, index=None, key="q16_mood", horizontal=True)
+
+st.markdown("**1 = Σίγουρα δεν νιώθω  7 = Σίγουρα νιώθω**")
+
+valid_bmis = validate_required_fields([
+    q1_bmis, q2_bmis, q3_bmis, q4_bmis, q5_bmis, q6_bmis, q7_bmis, q8_bmis,
+    q9_bmis, q10_bmis, q11_bmis, q12_bmis, q13_bmis, q14_bmis, q15_bmis, q16_bmis
+])
+
+st.markdown("---")
+
 if st.button("Υποβολή απαντήσεων"):
     responses = {key: value for key, value in st.session_state.items()}
     responses["timestamp"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
